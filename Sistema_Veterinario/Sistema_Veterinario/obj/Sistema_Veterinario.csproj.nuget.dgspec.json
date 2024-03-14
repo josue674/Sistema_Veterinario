@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Universisdad\\Programacion_Avansada\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.csproj": {}
+    "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.csproj": {}
   },
   "projects": {
-    "D:\\Universisdad\\Programacion_Avansada\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.csproj": {
+    "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Universisdad\\Programacion_Avansada\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.csproj",
-        "projectName": "Sistema_Veterinario",
-        "projectPath": "D:\\Universisdad\\Programacion_Avansada\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.csproj",
-        "packagesPath": "C:\\Users\\Josue\\.nuget\\packages\\",
-        "outputPath": "D:\\Universisdad\\Programacion_Avansada\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\obj\\",
+        "projectUniqueName": "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj",
+        "projectName": "Sistema_Veterinario.DAL",
+        "projectPath": "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj",
+        "packagesPath": "C:\\Users\\Steve\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Josue\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Steve\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,6 +44,79 @@
               "target": "Package",
               "version": "[8.0.2, )"
             },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.csproj",
+        "projectName": "Sistema_Veterinario",
+        "projectPath": "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.csproj",
+        "packagesPath": "C:\\Users\\Steve\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Steve\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj": {
+                "projectPath": "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -63,6 +136,10 @@
             "Microsoft.IdentityModel.JsonWebTokens": {
               "target": "Package",
               "version": "[7.4.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[8.0.1, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",

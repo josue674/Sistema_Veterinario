@@ -7925,11 +7925,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.csproj",
+      "projectUniqueName": "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto2\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.csproj",
       "projectName": "Sistema_Veterinario",
-      "projectPath": "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.csproj",
+      "projectPath": "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto2\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.csproj",
       "packagesPath": "C:\\Users\\Steve\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\obj\\",
+      "outputPath": "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto2\\Sistema_Veterinario\\Sistema_Veterinario\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Steve\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7946,8 +7946,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj": {
-              "projectPath": "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj"
+            "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto2\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj": {
+              "projectPath": "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\Proyecto2\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj"
             }
           }
         }

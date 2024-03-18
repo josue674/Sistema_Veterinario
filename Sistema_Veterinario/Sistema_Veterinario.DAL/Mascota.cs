@@ -30,5 +30,7 @@ namespace Sistema_Veterinario.DAL
         public Cliente? Cliente { get; set; }
         public Veterinario? Veterinario { get; set; }
 
+        public Padecimiento? Padecimiento { get; set; }
+
     }
 }

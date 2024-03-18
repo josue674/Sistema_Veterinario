@@ -16,6 +16,8 @@ namespace Sistema_Veterinario.DAL
 
         public int PadecimientoId { get; set; }
         public string NombrePadecimiento { get; set; }
-       
+
+        public ICollection<Padecimiento> Padecimientos { get; set; } = new List<Padecimiento>();
+
     }
 }

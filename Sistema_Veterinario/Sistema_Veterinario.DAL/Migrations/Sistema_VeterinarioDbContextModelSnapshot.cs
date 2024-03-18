@@ -33,14 +33,9 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.Property<DateTime>("FechaCita")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UsuarioId")
-                        .HasColumnType("int");
-
                     b.HasKey("CitaId");
 
-                    b.HasIndex("UsuarioId");
-
-                    b.ToTable("Cita");
+                    b.ToTable("Cita", (string)null);
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Cliente", b =>
@@ -67,7 +62,7 @@ namespace Sistema_Veterinario.DAL.Migrations
 
                     b.HasKey("ClienteId");
 
-                    b.ToTable("Cliente");
+                    b.ToTable("Cliente", (string)null);
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Contacto", b =>
@@ -98,7 +93,7 @@ namespace Sistema_Veterinario.DAL.Migrations
 
                     b.HasIndex("VeterinarioId");
 
-                    b.ToTable("Contacto");
+                    b.ToTable("Contacto", (string)null);
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Diagnostico", b =>
@@ -122,7 +117,7 @@ namespace Sistema_Veterinario.DAL.Migrations
 
                     b.HasKey("DiagnosticoId");
 
-                    b.ToTable("Diagnostico");
+                    b.ToTable("Diagnostico", (string)null);
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Mascota", b =>
@@ -166,7 +161,7 @@ namespace Sistema_Veterinario.DAL.Migrations
 
                     b.HasIndex("VeterinarioId");
 
-                    b.ToTable("Mascota");
+                    b.ToTable("Mascota", (string)null);
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Medicamento", b =>
@@ -183,7 +178,7 @@ namespace Sistema_Veterinario.DAL.Migrations
 
                     b.HasKey("MedicamentoId");
 
-                    b.ToTable("Medicamento");
+                    b.ToTable("Medicamento", (string)null);
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Padecimiento", b =>
@@ -200,7 +195,7 @@ namespace Sistema_Veterinario.DAL.Migrations
 
                     b.HasKey("PadecimientoId");
 
-                    b.ToTable("Padecimiento");
+                    b.ToTable("Padecimiento", (string)null);
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Usuario", b =>
@@ -223,7 +218,7 @@ namespace Sistema_Veterinario.DAL.Migrations
 
                     b.HasKey("UsuarioId");
 
-                    b.ToTable("Usuario");
+                    b.ToTable("Usuario", (string)null);
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Vacuna", b =>
@@ -243,7 +238,7 @@ namespace Sistema_Veterinario.DAL.Migrations
 
                     b.HasKey("VacunaId");
 
-                    b.ToTable("Vacuna");
+                    b.ToTable("Vacuna", (string)null);
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Veterinario", b =>
@@ -273,16 +268,7 @@ namespace Sistema_Veterinario.DAL.Migrations
 
                     b.HasIndex("DiagnosticoId");
 
-                    b.ToTable("Veterinario");
-                });
-
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Cita", b =>
-                {
-                    b.HasOne("Sistema_Veterinario.DAL.Usuario", "Usuario")
-                        .WithMany("Citas")
-                        .HasForeignKey("UsuarioId");
-
-                    b.Navigation("Usuario");
+                    b.ToTable("Veterinario", (string)null);
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Contacto", b =>
@@ -334,11 +320,6 @@ namespace Sistema_Veterinario.DAL.Migrations
             modelBuilder.Entity("Sistema_Veterinario.DAL.Diagnostico", b =>
                 {
                     b.Navigation("Veterinarios");
-                });
-
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Usuario", b =>
-                {
-                    b.Navigation("Citas");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Veterinario", b =>

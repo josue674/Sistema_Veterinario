@@ -22,6 +22,12 @@ namespace Sistema_Veterinario.DAL
         [DisplayName("Email")]
         public string Apellido { get; set; }
         public string Especialidad { get; set; }
-       
+
+
+        public Diagnostico? Diagnostico { get; set; }
+        public ICollection<Contacto> Contactos { get; set; } = new List<Contacto>();
+        public ICollection<Mascota> Mascotas { get; set; } = new List<Mascota>();
+
+
     }
 }

@@ -16,7 +16,7 @@ namespace Sistema_Veterinario.DAL
 
         public int CitaId { get; set; }
         public DateTime FechaCita { get; set; }
-       
-        
+
+        public Usuario? Usuario { get; set; }
     }
 }

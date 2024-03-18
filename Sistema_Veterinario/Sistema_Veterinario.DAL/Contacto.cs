@@ -21,7 +21,10 @@ namespace Sistema_Veterinario.DAL
         [EmailAddress(ErrorMessage = "El correo electrónico no tiene un formato válido")]
         [DisplayName("Email")]
         public string Telefono { get; set; }
-      
-       
+
+        public Cliente? Cliente { get; set; }
+        public Veterinario? Veterinario { get; set;}
+        
+
     }
 }

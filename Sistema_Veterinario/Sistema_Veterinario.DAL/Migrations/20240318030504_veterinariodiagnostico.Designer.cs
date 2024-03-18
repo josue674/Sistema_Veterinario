@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sistema_Veterinario.DAL;
 
@@ -11,9 +12,11 @@ using Sistema_Veterinario.DAL;
 namespace Sistema_Veterinario.DAL.Migrations
 {
     [DbContext(typeof(Sistema_VeterinarioDbContext))]
-    partial class Sistema_VeterinarioDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240318030504_veterinariodiagnostico")]
+    partial class veterinariodiagnostico
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,12 +36,7 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.Property<DateTime>("FechaCita")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UsuarioId")
-                        .HasColumnType("int");
-
                     b.HasKey("CitaId");
-
-                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Cita");
                 });
@@ -276,15 +274,6 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.ToTable("Veterinario");
                 });
 
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Cita", b =>
-                {
-                    b.HasOne("Sistema_Veterinario.DAL.Usuario", "Usuario")
-                        .WithMany("Citas")
-                        .HasForeignKey("UsuarioId");
-
-                    b.Navigation("Usuario");
-                });
-
             modelBuilder.Entity("Sistema_Veterinario.DAL.Contacto", b =>
                 {
                     b.HasOne("Sistema_Veterinario.DAL.Cliente", "Cliente")
@@ -334,11 +323,6 @@ namespace Sistema_Veterinario.DAL.Migrations
             modelBuilder.Entity("Sistema_Veterinario.DAL.Diagnostico", b =>
                 {
                     b.Navigation("Veterinarios");
-                });
-
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Usuario", b =>
-                {
-                    b.Navigation("Citas");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Veterinario", b =>

@@ -24,5 +24,8 @@ namespace Sistema_Veterinario.DAL
         public DateTime FechaRegistro { get; set; }
         [DefaultValue(false)]
         public bool Activo { get; set; }
+
+        public ICollection<Contacto> Contactos{ get; set; } = new List<Contacto>();
+        public ICollection<Mascota> Mascotas { get; set; } = new List<Mascota>();
     }
 }

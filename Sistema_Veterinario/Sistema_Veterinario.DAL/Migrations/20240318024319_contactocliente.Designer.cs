@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sistema_Veterinario.DAL;
 
@@ -11,9 +12,11 @@ using Sistema_Veterinario.DAL;
 namespace Sistema_Veterinario.DAL.Migrations
 {
     [DbContext(typeof(Sistema_VeterinarioDbContext))]
-    partial class Sistema_VeterinarioDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240318024319_contactocliente")]
+    partial class contactocliente
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,12 +36,7 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.Property<DateTime>("FechaCita")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("UsuarioId")
-                        .HasColumnType("int");
-
                     b.HasKey("CitaId");
-
-                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Cita");
                 });
@@ -89,14 +87,9 @@ namespace Sistema_Veterinario.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("VeterinarioId")
-                        .HasColumnType("int");
-
                     b.HasKey("ContactoId");
 
                     b.HasIndex("ClienteId");
-
-                    b.HasIndex("VeterinarioId");
 
                     b.ToTable("Contacto");
                 });
@@ -133,9 +126,6 @@ namespace Sistema_Veterinario.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MascotaId"));
 
-                    b.Property<int?>("ClienteId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Edad")
                         .HasColumnType("int");
 
@@ -157,14 +147,7 @@ namespace Sistema_Veterinario.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("VeterinarioId")
-                        .HasColumnType("int");
-
                     b.HasKey("MascotaId");
-
-                    b.HasIndex("ClienteId");
-
-                    b.HasIndex("VeterinarioId");
 
                     b.ToTable("Mascota");
                 });
@@ -258,9 +241,6 @@ namespace Sistema_Veterinario.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("DiagnosticoId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Especialidad")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -271,18 +251,7 @@ namespace Sistema_Veterinario.DAL.Migrations
 
                     b.HasKey("VeterinarioId");
 
-                    b.HasIndex("DiagnosticoId");
-
                     b.ToTable("Veterinario");
-                });
-
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Cita", b =>
-                {
-                    b.HasOne("Sistema_Veterinario.DAL.Usuario", "Usuario")
-                        .WithMany("Citas")
-                        .HasForeignKey("UsuarioId");
-
-                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Contacto", b =>
@@ -291,61 +260,12 @@ namespace Sistema_Veterinario.DAL.Migrations
                         .WithMany("Contactos")
                         .HasForeignKey("ClienteId");
 
-                    b.HasOne("Sistema_Veterinario.DAL.Veterinario", "Veterinario")
-                        .WithMany("Contactos")
-                        .HasForeignKey("VeterinarioId");
-
                     b.Navigation("Cliente");
-
-                    b.Navigation("Veterinario");
-                });
-
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Mascota", b =>
-                {
-                    b.HasOne("Sistema_Veterinario.DAL.Cliente", "Cliente")
-                        .WithMany("Mascotas")
-                        .HasForeignKey("ClienteId");
-
-                    b.HasOne("Sistema_Veterinario.DAL.Veterinario", "Veterinario")
-                        .WithMany("Mascotas")
-                        .HasForeignKey("VeterinarioId");
-
-                    b.Navigation("Cliente");
-
-                    b.Navigation("Veterinario");
-                });
-
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Veterinario", b =>
-                {
-                    b.HasOne("Sistema_Veterinario.DAL.Diagnostico", "Diagnostico")
-                        .WithMany("Veterinarios")
-                        .HasForeignKey("DiagnosticoId");
-
-                    b.Navigation("Diagnostico");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Cliente", b =>
                 {
                     b.Navigation("Contactos");
-
-                    b.Navigation("Mascotas");
-                });
-
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Diagnostico", b =>
-                {
-                    b.Navigation("Veterinarios");
-                });
-
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Usuario", b =>
-                {
-                    b.Navigation("Citas");
-                });
-
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Veterinario", b =>
-                {
-                    b.Navigation("Contactos");
-
-                    b.Navigation("Mascotas");
                 });
 #pragma warning restore 612, 618
         }

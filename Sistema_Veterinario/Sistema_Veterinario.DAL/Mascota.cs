@@ -26,5 +26,9 @@ namespace Sistema_Veterinario.DAL
 
         //Imagen
         public bool Estado { get; set; }
+
+        public Cliente? Cliente { get; set; }
+        public Veterinario? Veterinario { get; set; }
+
     }
 }

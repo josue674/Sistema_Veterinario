@@ -17,6 +17,7 @@ namespace Sistema_Veterinario.DAL
         public int VacunaId { get; set; }
         public string Nombre { get; set; }
         public DateTime FechaAplicacion { get; set; }
-       
+
+
     }
 }

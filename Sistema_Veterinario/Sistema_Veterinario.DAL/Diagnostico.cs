@@ -18,7 +18,7 @@ namespace Sistema_Veterinario.DAL
         public string NombreDiagnostico { get; set; }
         public string Descripcion { get; set; }
         public DateTime FechaDiagnostico { get; set; }
-        
-        
+
+        public ICollection<Veterinario> Veterinarios { get; set; } = new List<Veterinario>();
     }
 }

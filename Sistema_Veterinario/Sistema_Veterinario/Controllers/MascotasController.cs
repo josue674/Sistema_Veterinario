@@ -21,11 +21,7 @@ namespace Sistema_Veterinario.Controllers
         // GET: Mascotas
         public async Task<IActionResult> Index()
         {
-            return _context.Mascotas != null ?
-                View(await _context.Mascotas.ToListAsync()) :
-                Problem("Entity set 'Sistema_VeterinarioDbContext.Mascota' is null.");
-
-          //  return View(await _context.Mascotas.ToListAsync());
+            return View(await _context.Mascotas.ToListAsync());
         }
 
         // GET: Mascotas/Details/5

@@ -790,3 +790,5 @@ C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\ProyectoFinal\Sistema_Vete
 C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\ProyectoFinal\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario\obj\Debug\net8.0\Sistema_Veterinario.pdb
 C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\ProyectoFinal\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario\obj\Debug\net8.0\Sistema_Veterinario.genruntimeconfig.cache
 C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\ProyectoFinal\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario\obj\Debug\net8.0\ref\Sistema_Veterinario.dll
+C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\ProyectoFinal\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\ProyectoFinal\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll

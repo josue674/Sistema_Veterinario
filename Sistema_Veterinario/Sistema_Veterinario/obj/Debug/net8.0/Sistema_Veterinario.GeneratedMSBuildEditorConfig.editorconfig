@@ -26,6 +26,86 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\ProyectoFinal\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Citas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Citas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Citas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Citas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Citas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2l0YXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Clientes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Clientes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Clientes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Clientes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Clientes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Contactoes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdG9lc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Contactoes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdG9lc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Contactoes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdG9lc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Contactoes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdG9lc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Contactoes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdG9lc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Diagnosticoes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhZ25vc3RpY29lc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Diagnosticoes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhZ25vc3RpY29lc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Diagnosticoes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhZ25vc3RpY29lc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Diagnosticoes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhZ25vc3RpY29lc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Diagnosticoes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlhZ25vc3RpY29lc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,12 +114,132 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Mascotas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Mascotas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Mascotas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Mascotas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Mascotas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Medicamentoes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbWVudG9lc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Medicamentoes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbWVudG9lc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Medicamentoes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbWVudG9lc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Medicamentoes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbWVudG9lc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Medicamentoes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVkaWNhbWVudG9lc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Padecimientoes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkZWNpbWllbnRvZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Padecimientoes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkZWNpbWllbnRvZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Padecimientoes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkZWNpbWllbnRvZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Padecimientoes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkZWNpbWllbnRvZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Padecimientoes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkZWNpbWllbnRvZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Usuarios/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Usuarios/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Usuarios/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Usuarios/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Usuarios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Vacunas/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjdW5hc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Vacunas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjdW5hc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Vacunas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjdW5hc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Vacunas/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjdW5hc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Vacunas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjdW5hc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Veterinarios/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmV0ZXJpbmFyaW9zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Veterinarios/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmV0ZXJpbmFyaW9zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Veterinarios/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmV0ZXJpbmFyaW9zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Veterinarios/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmV0ZXJpbmFyaW9zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Veterinarios/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmV0ZXJpbmFyaW9zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Steve/OneDrive/Documentos/Visual Studio 2022/ProyectoFinal/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/_ViewImports.cshtml]

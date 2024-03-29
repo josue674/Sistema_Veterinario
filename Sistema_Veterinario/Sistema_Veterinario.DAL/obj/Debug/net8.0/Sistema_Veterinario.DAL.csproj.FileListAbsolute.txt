@@ -25,6 +25,7 @@ C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\Proyecto2\Sistema_Veterina
 C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\Proyecto2\Sistema_Veterinario\Sistema_Veterinario.DAL\obj\Debug\net8.0\Sistema_Veterinario.DAL.pdb
 C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\Proyecto2\Sistema_Veterinario\Sistema_Veterinario.DAL\obj\Debug\net8.0\ref\Sistema_Veterinario.DAL.dll
 C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\ProyectoFinal\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario.DAL\bin\Debug\net8.0\Sistema_Veterinario.DAL.deps.json
+C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\ProyectoFinal\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario.DAL\bin\Debug\net8.0\Sistema_Veterinario.DAL.runtimeconfig.json
 C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\ProyectoFinal\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario.DAL\bin\Debug\net8.0\Sistema_Veterinario.DAL.dll
 C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\ProyectoFinal\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario.DAL\bin\Debug\net8.0\Sistema_Veterinario.DAL.pdb
 C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\ProyectoFinal\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario.DAL\obj\Debug\net8.0\Sistema_Veterinario.DAL.csproj.AssemblyReference.cache
@@ -36,4 +37,5 @@ C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\ProyectoFinal\Sistema_Vete
 C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\ProyectoFinal\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario.DAL\obj\Debug\net8.0\Sistema_Veterinario.DAL.dll
 C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\ProyectoFinal\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario.DAL\obj\Debug\net8.0\refint\Sistema_Veterinario.DAL.dll
 C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\ProyectoFinal\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario.DAL\obj\Debug\net8.0\Sistema_Veterinario.DAL.pdb
+C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\ProyectoFinal\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario.DAL\obj\Debug\net8.0\Sistema_Veterinario.DAL.genruntimeconfig.cache
 C:\Users\Steve\OneDrive\Documentos\Visual Studio 2022\ProyectoFinal\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario.DAL\obj\Debug\net8.0\ref\Sistema_Veterinario.DAL.dll

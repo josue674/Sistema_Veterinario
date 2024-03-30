@@ -24,41 +24,94 @@ namespace Sistema_Veterinario.DAL.Migrations
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Cita", b =>
                 {
-                    b.Property<int>("IdCita")
+                    b.Property<int>("CitaID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCita"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CitaID"));
 
-                    b.Property<bool>("Estado")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("UsuarioIdUsuario")
-                        .HasColumnType("int");
-
-                    b.Property<string>("descripcionCita")
+                    b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("fechaCita")
+                    b.Property<string>("Diagnostico")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FechaHora")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("IdCita");
+                    b.Property<int>("MascotaID")
+                        .HasColumnType("int");
 
-                    b.HasIndex("UsuarioIdUsuario");
+                    b.Property<int>("VeterinarioPrincipalID")
+                        .HasColumnType("int");
 
-                    b.ToTable("Cita");
+                    b.Property<int>("VeterinarioSecundarioID")
+                        .HasColumnType("int");
+
+                    b.HasKey("CitaID");
+
+                    b.HasIndex("MascotaID");
+
+                    b.HasIndex("VeterinarioPrincipalID");
+
+                    b.HasIndex("VeterinarioSecundarioID");
+
+                    b.ToTable("Citas");
+                });
+
+            modelBuilder.Entity("Sistema_Veterinario.DAL.DesparasitacionVacuna", b =>
+                {
+                    b.Property<int>("DesparasitacionVacunaID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DesparasitacionVacunaID"));
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("MascotaID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Producto")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("DesparasitacionVacunaID");
+
+                    b.HasIndex("MascotaID");
+
+                    b.ToTable("DesparasitacionVacunas");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Mascota", b =>
                 {
-                    b.Property<int>("IdMascota")
+                    b.Property<int>("MascotaID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdMascota"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MascotaID"));
 
-                    b.Property<int?>("CitaIdCita")
+                    b.Property<int>("CodigoUsuarioCreacion")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CodigoUsuarioModificacion")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DueñoID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Edad")
                         .HasColumnType("int");
 
                     b.Property<bool>("Estado")
@@ -70,246 +123,273 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.Property<DateTime>("FechaModificacion")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Imagen")
+                    b.Property<string>("Genero")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("edad")
+                    b.Property<byte[]>("ImagenMascota")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("NombreMascota")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("genero")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<decimal>("Peso")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("nombreMascota")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("RazaID")
+                        .HasColumnType("int");
 
-                    b.Property<float>("peso")
-                        .HasColumnType("real");
+                    b.Property<int>("TipoMascotaID")
+                        .HasColumnType("int");
 
-                    b.HasKey("IdMascota");
+                    b.HasKey("MascotaID");
 
-                    b.HasIndex("CitaIdCita");
+                    b.HasIndex("DueñoID");
 
-                    b.ToTable("Mascota");
+                    b.HasIndex("RazaID");
+
+                    b.HasIndex("TipoMascotaID");
+
+                    b.ToTable("Mascotas");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Medicamento", b =>
                 {
-                    b.Property<int>("IdMedicamento")
+                    b.Property<int>("MedicamentoID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdMedicamento"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MedicamentoID"));
 
-                    b.Property<int?>("TratamientoIdTratamiento")
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NombreMedicamento")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MedicamentoID");
+
+                    b.ToTable("Medicamentos");
+                });
+
+            modelBuilder.Entity("Sistema_Veterinario.DAL.MedicamentoCita", b =>
+                {
+                    b.Property<int>("MedicamentoCitaID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("descripcionMedicamento")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MedicamentoCitaID"));
+
+                    b.Property<int>("CitaID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Dosis")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("nombreMedicamento")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("MedicamentoID")
+                        .HasColumnType("int");
 
-                    b.HasKey("IdMedicamento");
+                    b.HasKey("MedicamentoCitaID");
 
-                    b.HasIndex("TratamientoIdTratamiento");
+                    b.HasIndex("CitaID");
 
-                    b.ToTable("Medicamento");
+                    b.HasIndex("MedicamentoID");
+
+                    b.ToTable("MedicamentoCitas");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Padecimiento", b =>
                 {
-                    b.Property<int>("IdPadecimiento")
+                    b.Property<int>("PadecimientoID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPadecimiento"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PadecimientoID"));
 
-                    b.Property<int?>("MascotaIdMascota")
-                        .HasColumnType("int");
-
-                    b.Property<string>("descripcionPadecimiento")
+                    b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("IdPadecimiento");
+                    b.Property<int>("MascotaID")
+                        .HasColumnType("int");
 
-                    b.HasIndex("MascotaIdMascota");
+                    b.HasKey("PadecimientoID");
 
-                    b.ToTable("Padecimiento");
+                    b.HasIndex("MascotaID");
+
+                    b.ToTable("Padecimientos");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Raza", b =>
                 {
-                    b.Property<int>("IdRazaMascota")
+                    b.Property<int>("RazaID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRazaMascota"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RazaID"));
 
-                    b.Property<int?>("TipoMascotaIdTipoMascota")
-                        .HasColumnType("int");
-
-                    b.Property<string>("tipoMascota")
+                    b.Property<string>("DescripcionRaza")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("IdRazaMascota");
+                    b.Property<int>("TipoMascotaID")
+                        .HasColumnType("int");
 
-                    b.HasIndex("TipoMascotaIdTipoMascota");
+                    b.HasKey("RazaID");
 
-                    b.ToTable("RazaMascota");
+                    b.HasIndex("TipoMascotaID");
+
+                    b.ToTable("Razas");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.TipoMascota", b =>
                 {
-                    b.Property<int>("IdTipoMascota")
+                    b.Property<int>("TipoMascotaID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdTipoMascota"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TipoMascotaID"));
 
-                    b.Property<int?>("MascotaIdMascota")
-                        .HasColumnType("int");
-
-                    b.Property<string>("tipoMascota")
+                    b.Property<string>("DescripcionTipo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("IdTipoMascota");
+                    b.HasKey("TipoMascotaID");
 
-                    b.HasIndex("MascotaIdMascota");
-
-                    b.ToTable("TipoMascota");
-                });
-
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Tratamiento", b =>
-                {
-                    b.Property<int>("IdTratamiento")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdTratamiento"));
-
-                    b.Property<int?>("CitaIdCita")
-                        .HasColumnType("int");
-
-                    b.Property<string>("descripcionTratamiento")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("dosis")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("IdTratamiento");
-
-                    b.HasIndex("CitaIdCita");
-
-                    b.ToTable("Tratamiento");
+                    b.ToTable("TiposMascota");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Usuario", b =>
                 {
-                    b.Property<int>("IdUsuario")
+                    b.Property<int>("UsuarioID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdUsuario"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UsuarioID"));
+
+                    b.Property<string>("Contraseña")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Estado")
                         .HasColumnType("bit");
 
-                    b.Property<string>("contrasenna")
+                    b.Property<byte[]>("ImagenUsuario")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("NombreUsuario")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("imagen")
+                    b.Property<string>("Rol")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("nombreUsuario")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("rol")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ultimaConexion")
+                    b.Property<DateTime>("UltimaConexion")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("IdUsuario");
+                    b.HasKey("UsuarioID");
 
-                    b.ToTable("Usuario");
-                });
-
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Vacuna", b =>
-                {
-                    b.Property<int>("IdVacuna")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdVacuna"));
-
-                    b.Property<int?>("MascotaIdMascota")
-                        .HasColumnType("int");
-
-                    b.Property<string>("descripcionVacuna")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("fechaVacuna")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("tipoVacuna")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("IdVacuna");
-
-                    b.HasIndex("MascotaIdMascota");
-
-                    b.ToTable("Vacuna");
+                    b.ToTable("Usuarios");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Cita", b =>
                 {
-                    b.HasOne("Sistema_Veterinario.DAL.Usuario", "Usuario")
+                    b.HasOne("Sistema_Veterinario.DAL.Mascota", "Mascota")
                         .WithMany("Citas")
-                        .HasForeignKey("UsuarioIdUsuario");
+                        .HasForeignKey("MascotaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Usuario");
+                    b.HasOne("Sistema_Veterinario.DAL.Usuario", "VeterinarioPrincipal")
+                        .WithMany()
+                        .HasForeignKey("VeterinarioPrincipalID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Sistema_Veterinario.DAL.Usuario", "VeterinarioSecundario")
+                        .WithMany()
+                        .HasForeignKey("VeterinarioSecundarioID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Mascota");
+
+                    b.Navigation("VeterinarioPrincipal");
+
+                    b.Navigation("VeterinarioSecundario");
+                });
+
+            modelBuilder.Entity("Sistema_Veterinario.DAL.DesparasitacionVacuna", b =>
+                {
+                    b.HasOne("Sistema_Veterinario.DAL.Mascota", "Mascota")
+                        .WithMany("DesparasitacionesVacunas")
+                        .HasForeignKey("MascotaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Mascota");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Mascota", b =>
                 {
-                    b.HasOne("Sistema_Veterinario.DAL.Cita", "Cita")
+                    b.HasOne("Sistema_Veterinario.DAL.Usuario", "Dueño")
                         .WithMany("Mascotas")
-                        .HasForeignKey("CitaIdCita");
+                        .HasForeignKey("DueñoID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Cita");
+                    b.HasOne("Sistema_Veterinario.DAL.Raza", "Raza")
+                        .WithMany("Mascotas")
+                        .HasForeignKey("RazaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Sistema_Veterinario.DAL.TipoMascota", "TipoMascota")
+                        .WithMany("Mascotas")
+                        .HasForeignKey("TipoMascotaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Dueño");
+
+                    b.Navigation("Raza");
+
+                    b.Navigation("TipoMascota");
                 });
 
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Medicamento", b =>
+            modelBuilder.Entity("Sistema_Veterinario.DAL.MedicamentoCita", b =>
                 {
-                    b.HasOne("Sistema_Veterinario.DAL.Tratamiento", "Tratamiento")
-                        .WithMany("Medicamentos")
-                        .HasForeignKey("TratamientoIdTratamiento");
+                    b.HasOne("Sistema_Veterinario.DAL.Cita", "Cita")
+                        .WithMany("MedicamentosCita")
+                        .HasForeignKey("CitaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Tratamiento");
+                    b.HasOne("Sistema_Veterinario.DAL.Medicamento", "Medicamento")
+                        .WithMany("MedicamentosCita")
+                        .HasForeignKey("MedicamentoID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cita");
+
+                    b.Navigation("Medicamento");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Padecimiento", b =>
                 {
                     b.HasOne("Sistema_Veterinario.DAL.Mascota", "Mascota")
                         .WithMany("Padecimientos")
-                        .HasForeignKey("MascotaIdMascota");
+                        .HasForeignKey("MascotaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Mascota");
                 });
@@ -318,67 +398,47 @@ namespace Sistema_Veterinario.DAL.Migrations
                 {
                     b.HasOne("Sistema_Veterinario.DAL.TipoMascota", "TipoMascota")
                         .WithMany("Razas")
-                        .HasForeignKey("TipoMascotaIdTipoMascota");
+                        .HasForeignKey("TipoMascotaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("TipoMascota");
                 });
 
-            modelBuilder.Entity("Sistema_Veterinario.DAL.TipoMascota", b =>
-                {
-                    b.HasOne("Sistema_Veterinario.DAL.Mascota", "Mascota")
-                        .WithMany("Tipos")
-                        .HasForeignKey("MascotaIdMascota");
-
-                    b.Navigation("Mascota");
-                });
-
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Tratamiento", b =>
-                {
-                    b.HasOne("Sistema_Veterinario.DAL.Cita", "Cita")
-                        .WithMany("Tratamientos")
-                        .HasForeignKey("CitaIdCita");
-
-                    b.Navigation("Cita");
-                });
-
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Vacuna", b =>
-                {
-                    b.HasOne("Sistema_Veterinario.DAL.Mascota", "Mascota")
-                        .WithMany("Vacunas")
-                        .HasForeignKey("MascotaIdMascota");
-
-                    b.Navigation("Mascota");
-                });
-
             modelBuilder.Entity("Sistema_Veterinario.DAL.Cita", b =>
                 {
-                    b.Navigation("Mascotas");
-
-                    b.Navigation("Tratamientos");
+                    b.Navigation("MedicamentosCita");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Mascota", b =>
                 {
+                    b.Navigation("Citas");
+
+                    b.Navigation("DesparasitacionesVacunas");
+
                     b.Navigation("Padecimientos");
+                });
 
-                    b.Navigation("Tipos");
+            modelBuilder.Entity("Sistema_Veterinario.DAL.Medicamento", b =>
+                {
+                    b.Navigation("MedicamentosCita");
+                });
 
-                    b.Navigation("Vacunas");
+            modelBuilder.Entity("Sistema_Veterinario.DAL.Raza", b =>
+                {
+                    b.Navigation("Mascotas");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.TipoMascota", b =>
                 {
-                    b.Navigation("Razas");
-                });
+                    b.Navigation("Mascotas");
 
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Tratamiento", b =>
-                {
-                    b.Navigation("Medicamentos");
+                    b.Navigation("Razas");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Usuario", b =>
                 {
-                    b.Navigation("Citas");
+                    b.Navigation("Mascotas");
                 });
 #pragma warning restore 612, 618
         }

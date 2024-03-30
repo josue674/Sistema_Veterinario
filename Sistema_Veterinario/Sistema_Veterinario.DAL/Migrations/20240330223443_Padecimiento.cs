@@ -5,7 +5,7 @@
 namespace Sistema_Veterinario.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class Medicamento : Migration
+    public partial class Padecimiento : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -12,8 +12,8 @@ using Sistema_Veterinario.DAL;
 namespace Sistema_Veterinario.DAL.Migrations
 {
     [DbContext(typeof(Sistema_VeterinarioDbContext))]
-    [Migration("20240330184404_Mascota")]
-    partial class Mascota
+    [Migration("20240330222321_Usuario")]
+    partial class Usuario
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,45 +25,39 @@ namespace Sistema_Veterinario.DAL.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Mascota", b =>
+            modelBuilder.Entity("Sistema_Veterinario.DAL.Usuario", b =>
                 {
-                    b.Property<int>("IdMascota")
+                    b.Property<int>("UsuarioID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdMascota"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UsuarioID"));
+
+                    b.Property<string>("Contraseña")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Estado")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("FechaCreacion")
+                    b.Property<byte[]>("ImagenUsuario")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("NombreUsuario")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Rol")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UltimaConexion")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("FechaModificacion")
-                        .HasColumnType("datetime2");
+                    b.HasKey("UsuarioID");
 
-                    b.Property<string>("Imagen")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("edad")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("genero")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("nombreMascota")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<float>("peso")
-                        .HasColumnType("real");
-
-                    b.HasKey("IdMascota");
-
-                    b.ToTable("Mascota");
+                    b.ToTable("Usuarios");
                 });
 #pragma warning restore 612, 618
         }

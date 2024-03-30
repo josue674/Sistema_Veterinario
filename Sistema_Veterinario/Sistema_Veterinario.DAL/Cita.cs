@@ -8,20 +8,25 @@ using System.Threading.Tasks;
 
 namespace Sistema_Veterinario.DAL
 {
-    [Table("Cita")]
     public class Cita
     {
         [Key]
-        public int IdCita { get; set; }
+        public int CitaID { get; set; }
+        public int MascotaID { get; set; }
+        public DateTime FechaHora { get; set; }
+        public int VeterinarioPrincipalID { get; set; }
+        public int VeterinarioSecundarioID { get; set; }
+        public string Descripcion { get; set; }
+        public string Diagnostico { get; set; }
+        public string Estado { get; set; }
 
-        public DateTime fechaCita { get; set; }
-
-        public String descripcionCita { get; set; }
-
-        public Boolean Estado { get; set; }
-
-        public Usuario? Usuario { get; set; }
-        public ICollection<Mascota> Mascotas { get; set; } = new List<Mascota>();
-        public ICollection<Tratamiento> Tratamientos { get; set; } = new List<Tratamiento>();
+        // Relaciones
+        [ForeignKey("MascotaID")]
+        public  Mascota ? Mascota { get; set; }
+        [ForeignKey("VeterinarioPrincipalID")]
+        public  Usuario ? VeterinarioPrincipal { get; set; }
+        [ForeignKey("VeterinarioSecundarioID")]
+        public  Usuario ? VeterinarioSecundario { get; set; }
+        public ICollection<MedicamentoCita> MedicamentosCita { get; set; }
     }
 }

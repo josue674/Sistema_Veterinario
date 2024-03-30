@@ -13,22 +13,28 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nombre)
+                @Html.DisplayNameFor(model => model.nombreMascota)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Tipo)
+                @Html.DisplayNameFor(model => model.genero)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Genero)
+                @Html.DisplayNameFor(model => model.edad)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Edad)
+                @Html.DisplayNameFor(model => model.peso)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Peso)
+                @Html.DisplayNameFor(model => model.Imagen)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaCreacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaModificacion)
             </th>
             <th></th>
         </tr>
@@ -37,27 +43,33 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
+                @Html.DisplayFor(modelItem => item.nombreMascota)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Tipo)
+                @Html.DisplayFor(modelItem => item.genero)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Genero)
+                @Html.DisplayFor(modelItem => item.edad)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Edad)
+                @Html.DisplayFor(modelItem => item.peso)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Peso)
+                @Html.DisplayFor(modelItem => item.Imagen)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Estado)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.MascotaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MascotaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MascotaId">Delete</a>
+                @Html.DisplayFor(modelItem => item.FechaCreacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaModificacion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdMascota">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdMascota">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdMascota">Delete</a>
             </td>
         </tr>
 }

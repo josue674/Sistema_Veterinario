@@ -13,24 +13,32 @@ namespace Sistema_Veterinario.DAL
     public class Mascota
     {
         [Key]
+        public int IdMascota { get; set; }
 
-        public int MascotaId { get; set; }
-        public string Nombre { get; set; }
+        public string nombreMascota { get; set; }
 
-        public string Tipo { get; set; }
+        public string genero { get; set; }
 
-        public string Genero { get; set; }
+        public string edad { get; set; }
 
-        public int Edad { get; set; } 
-        public float Peso { get; set; }
+        public float peso { get; set; }
 
-        //Imagen
-        public bool Estado { get; set; }
+        public string Imagen { get; set; }
 
-        public Cliente? Cliente { get; set; }
-        public Veterinario? Veterinario { get; set; }
+        public Boolean Estado { get; set; }
+        public DateTime FechaCreacion { get; set; }
 
-       
+        public DateTime FechaModificacion { get; set; }
 
+
+
+        // Se utiliza el "?" para hacerlo nullable y no tener problemas del ModelState
+        // public ApplicationUser? UsuarioCreacion { get; set; }
+        public ICollection<TipoMascota> Tipos { get; set; } = new List<TipoMascota>();
+        public ICollection<Padecimiento> Padecimientos { get; set; } = new List<Padecimiento>();
+        public ICollection<Vacuna> Vacunas { get; set; } = new List<Vacuna>();
+
+
+        public Cita? Cita { get; set;}
     }
 }

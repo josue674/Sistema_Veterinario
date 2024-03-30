@@ -16,17 +16,15 @@ namespace Sistema_Veterinario.DAL
             optionsBuilder.UseSqlServer();
         }
 
-        public virtual DbSet<Cliente> Clientes { get; set; }
-        public virtual DbSet<Usuario> Usuarios { get; set; }
-        public virtual DbSet<Veterinario> Veterinarios { get; set; }
-        public virtual DbSet<Vacuna> Vacunas { get; set; }
-        public virtual DbSet<Padecimiento> Padecimientos { get; set; }
-        public virtual DbSet<Diagnostico> Diagnosticos { get; set; }
         public virtual DbSet<Mascota> Mascotas { get; set; }
-        public virtual DbSet<Medicamento> Medicamentos { get; set; }
-        public virtual DbSet<Contacto> Contactos { get; set; }
+        public virtual DbSet<TipoMascota> TiposMascota{ get; set; }
+        public virtual DbSet<Raza> Razas { get; set; }
+        public virtual DbSet<Padecimiento> Padecimientos { get; set; }
+        public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<Cita> Citas { get; set; }
-
+        public virtual DbSet<Vacuna> Vacunas { get; set; }
+        public virtual DbSet<Medicamento> Medicamentos { get; set; }
+        public virtual DbSet<Tratamiento> Tratamientos { get; set; }
 
 
 

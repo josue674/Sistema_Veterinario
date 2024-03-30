@@ -12,34 +12,34 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
+            @Html.DisplayNameFor(model => model.nombreMascota)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
+            @Html.DisplayFor(model => model.nombreMascota)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tipo)
+            @Html.DisplayNameFor(model => model.genero)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tipo)
+            @Html.DisplayFor(model => model.genero)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Genero)
+            @Html.DisplayNameFor(model => model.edad)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Genero)
+            @Html.DisplayFor(model => model.edad)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Edad)
+            @Html.DisplayNameFor(model => model.peso)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Edad)
+            @Html.DisplayFor(model => model.peso)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Peso)
+            @Html.DisplayNameFor(model => model.Imagen)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Peso)
+            @Html.DisplayFor(model => model.Imagen)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Estado)
@@ -47,10 +47,22 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Estado)
         </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaCreacion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaModificacion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaModificacion)
+        </dd>
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="MascotaId" />
+        <input type="hidden" asp-for="IdMascota" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

@@ -33,7 +33,7 @@ namespace Sistema_Veterinario.Controllers
             }
 
             var mascota = await _context.Mascotas
-                .FirstOrDefaultAsync(m => m.MascotaId == id);
+                .FirstOrDefaultAsync(m => m.IdMascota == id);
             if (mascota == null)
             {
                 return NotFound();
@@ -53,7 +53,7 @@ namespace Sistema_Veterinario.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MascotaId,Nombre,Tipo,Genero,Edad,Peso,Estado")] Mascota mascota)
+        public async Task<IActionResult> Create([Bind("IdMascota,nombreMascota,genero,edad,peso,Imagen,Estado,FechaCreacion,FechaModificacion")] Mascota mascota)
         {
             if (ModelState.IsValid)
             {
@@ -85,9 +85,9 @@ namespace Sistema_Veterinario.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MascotaId,Nombre,Tipo,Genero,Edad,Peso,Estado")] Mascota mascota)
+        public async Task<IActionResult> Edit(int id, [Bind("IdMascota,nombreMascota,genero,edad,peso,Imagen,Estado,FechaCreacion,FechaModificacion")] Mascota mascota)
         {
-            if (id != mascota.MascotaId)
+            if (id != mascota.IdMascota)
             {
                 return NotFound();
             }
@@ -101,7 +101,7 @@ namespace Sistema_Veterinario.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!MascotaExists(mascota.MascotaId))
+                    if (!MascotaExists(mascota.IdMascota))
                     {
                         return NotFound();
                     }
@@ -124,7 +124,7 @@ namespace Sistema_Veterinario.Controllers
             }
 
             var mascota = await _context.Mascotas
-                .FirstOrDefaultAsync(m => m.MascotaId == id);
+                .FirstOrDefaultAsync(m => m.IdMascota == id);
             if (mascota == null)
             {
                 return NotFound();
@@ -150,7 +150,7 @@ namespace Sistema_Veterinario.Controllers
 
         private bool MascotaExists(int id)
         {
-            return _context.Mascotas.Any(e => e.MascotaId == id);
+            return _context.Mascotas.Any(e => e.IdMascota == id);
         }
     }
 }

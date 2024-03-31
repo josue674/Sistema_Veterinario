@@ -8,18 +8,15 @@ using System.Threading.Tasks;
 
 namespace Sistema_Veterinario.DAL
 {
-    [Table("Padecimientos")]
-    public class Padecimiento
+    [Table("Roles")]
+    public class Rol
     {
         [Key]
-        public int PadecimientoID { get; set; }
+        public int RolID { get; set; }
 
-        [ForeignKey("Mascota")]
-        public int MascotaID { get; set; }
-
-        [Required]
+        [Required, MaxLength(50)]
         public string Descripcion { get; set; }
 
-        public Mascota ? Mascota { get; set; }
+        public ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
     }
 }

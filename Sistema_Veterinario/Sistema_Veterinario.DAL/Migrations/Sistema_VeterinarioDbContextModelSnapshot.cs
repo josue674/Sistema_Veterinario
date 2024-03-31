@@ -38,8 +38,8 @@ namespace Sistema_Veterinario.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Estado")
-                        .HasColumnType("bit");
+                    b.Property<int>("EstadoCitaID")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("FechaHora")
                         .HasColumnType("datetime2");
@@ -54,6 +54,8 @@ namespace Sistema_Veterinario.DAL.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("CitaID");
+
+                    b.HasIndex("EstadoCitaID");
 
                     b.HasIndex("MascotaID");
 
@@ -93,6 +95,23 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.ToTable("DesparasitacionVacunas");
                 });
 
+            modelBuilder.Entity("Sistema_Veterinario.DAL.EstadoCita", b =>
+                {
+                    b.Property<int>("EstadoCitaID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EstadoCitaID"));
+
+                    b.Property<string>("EstadoCitaNombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("EstadoCitaID");
+
+                    b.ToTable("EstadoCitas");
+                });
+
             modelBuilder.Entity("Sistema_Veterinario.DAL.Mascota", b =>
                 {
                     b.Property<int>("MascotaID")
@@ -130,8 +149,8 @@ namespace Sistema_Veterinario.DAL.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<decimal>("Peso")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<float>("Peso")
+                        .HasColumnType("real");
 
                     b.Property<int>("RazaID")
                         .HasColumnType("int");
@@ -148,6 +167,26 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.HasIndex("TipoMascotaID");
 
                     b.ToTable("Mascotas");
+                });
+
+            modelBuilder.Entity("Sistema_Veterinario.DAL.MascotaUsuarioAccion", b =>
+                {
+                    b.Property<int>("MascotaID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsuarioCreacionID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsuarioModificacionID")
+                        .HasColumnType("int");
+
+                    b.HasKey("MascotaID");
+
+                    b.HasIndex("UsuarioCreacionID");
+
+                    b.HasIndex("UsuarioModificacionID");
+
+                    b.ToTable("MascotaUsuarioAcciones");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Medicamento", b =>
@@ -319,6 +358,12 @@ namespace Sistema_Veterinario.DAL.Migrations
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Cita", b =>
                 {
+                    b.HasOne("Sistema_Veterinario.DAL.EstadoCita", "EstadoCita")
+                        .WithMany("Citas")
+                        .HasForeignKey("EstadoCitaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Sistema_Veterinario.DAL.Mascota", "Mascota")
                         .WithMany("Citas")
                         .HasForeignKey("MascotaID")
@@ -336,6 +381,8 @@ namespace Sistema_Veterinario.DAL.Migrations
                         .HasForeignKey("VeterinarioSecundarioID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("EstadoCita");
 
                     b.Navigation("Mascota");
 
@@ -380,6 +427,33 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.Navigation("Raza");
 
                     b.Navigation("TipoMascota");
+                });
+
+            modelBuilder.Entity("Sistema_Veterinario.DAL.MascotaUsuarioAccion", b =>
+                {
+                    b.HasOne("Sistema_Veterinario.DAL.Mascota", "Mascota")
+                        .WithMany()
+                        .HasForeignKey("MascotaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Sistema_Veterinario.DAL.Usuario", "UsuarioCreacion")
+                        .WithMany()
+                        .HasForeignKey("UsuarioCreacionID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Sistema_Veterinario.DAL.Usuario", "UsuarioModificacion")
+                        .WithMany()
+                        .HasForeignKey("UsuarioModificacionID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Mascota");
+
+                    b.Navigation("UsuarioCreacion");
+
+                    b.Navigation("UsuarioModificacion");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.MedicamentoCita", b =>
@@ -437,6 +511,11 @@ namespace Sistema_Veterinario.DAL.Migrations
             modelBuilder.Entity("Sistema_Veterinario.DAL.Cita", b =>
                 {
                     b.Navigation("MedicamentosCita");
+                });
+
+            modelBuilder.Entity("Sistema_Veterinario.DAL.EstadoCita", b =>
+                {
+                    b.Navigation("Citas");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Mascota", b =>

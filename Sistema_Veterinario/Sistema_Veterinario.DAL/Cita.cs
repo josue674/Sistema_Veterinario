@@ -31,11 +31,12 @@ namespace Sistema_Veterinario.DAL
         public string Diagnostico { get; set; }
 
         [Required]
-        public bool Estado { get; set; }
+        public int EstadoCitaID { get; set; }
 
         public Mascota ? Mascota { get; set; }
         public Usuario ? VeterinarioPrincipal { get; set; }
         public Usuario ? VeterinarioSecundario { get; set; }
+        public EstadoCita ? EstadoCita { get; set; }
         public ICollection<MedicamentoCita> MedicamentosCita { get; set; } = new List<MedicamentoCita>();
     }
 }

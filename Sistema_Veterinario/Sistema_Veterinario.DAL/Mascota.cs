@@ -28,20 +28,14 @@ namespace Sistema_Veterinario.DAL
 
         public int Edad { get; set; }
 
-        public decimal Peso { get; set; }
+        public float Peso { get; set; }
 
         [ForeignKey("Dueno")]
         public int DuenoID { get; set; }
 
         public string ImagenMascota { get; set; }
 
-        //[ForeignKey("UsuarioCreacion")]
-        //public int UsuarioCreacionID { get; set; }
-
         public DateTime FechaCreacion { get; set; }
-
-        //[ForeignKey("UsuarioModificacion")]
-        //public int UsuarioModificacionID { get; set; }
 
         public DateTime FechaModificacion { get; set; }
 
@@ -50,8 +44,8 @@ namespace Sistema_Veterinario.DAL
         public TipoMascota ? TipoMascota { get; set; }
         public Raza ? Raza { get; set; }
         public Usuario ? Dueno { get; set; }
-        //public Usuario ? UsuarioCreacion { get; set; }
-        //public Usuario ? UsuarioModificacion { get; set; }
+
+        //public MascotaUsuarioAccion ? MascotaUsuarioAccion { get; set; }
 
         public ICollection<Padecimiento> Padecimientos { get; set; } = new List<Padecimiento>();
         public ICollection<DesparasitacionVacuna> DesparasitacionesVacunas { get; set; } = new List<DesparasitacionVacuna>();

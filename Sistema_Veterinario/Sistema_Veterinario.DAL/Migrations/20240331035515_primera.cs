@@ -72,7 +72,7 @@ namespace Sistema_Veterinario.DAL.Migrations
                         column: x => x.RolID,
                         principalTable: "Roles",
                         principalColumn: "RolID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -92,7 +92,7 @@ namespace Sistema_Veterinario.DAL.Migrations
                         column: x => x.TipoMascotaID,
                         principalTable: "TipoMascotas",
                         principalColumn: "TipoMascotaID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -121,19 +121,19 @@ namespace Sistema_Veterinario.DAL.Migrations
                         column: x => x.RazaID,
                         principalTable: "Razas",
                         principalColumn: "RazaID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Mascotas_TipoMascotas_TipoMascotaID",
                         column: x => x.TipoMascotaID,
                         principalTable: "TipoMascotas",
                         principalColumn: "TipoMascotaID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Mascotas_Usuarios_DuenoID",
                         column: x => x.DuenoID,
                         principalTable: "Usuarios",
                         principalColumn: "UsuarioID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -158,19 +158,19 @@ namespace Sistema_Veterinario.DAL.Migrations
                         column: x => x.MascotaID,
                         principalTable: "Mascotas",
                         principalColumn: "MascotaID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Citas_Usuarios_VeterinarioPrincipalID",
                         column: x => x.VeterinarioPrincipalID,
                         principalTable: "Usuarios",
                         principalColumn: "UsuarioID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Citas_Usuarios_VeterinarioSecundarioID",
                         column: x => x.VeterinarioSecundarioID,
                         principalTable: "Usuarios",
                         principalColumn: "UsuarioID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -192,7 +192,7 @@ namespace Sistema_Veterinario.DAL.Migrations
                         column: x => x.MascotaID,
                         principalTable: "Mascotas",
                         principalColumn: "MascotaID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -212,7 +212,7 @@ namespace Sistema_Veterinario.DAL.Migrations
                         column: x => x.MascotaID,
                         principalTable: "Mascotas",
                         principalColumn: "MascotaID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -233,13 +233,13 @@ namespace Sistema_Veterinario.DAL.Migrations
                         column: x => x.CitaID,
                         principalTable: "Citas",
                         principalColumn: "CitaID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_MedicamentoCita_Medicamentos_MedicamentoID",
                         column: x => x.MedicamentoID,
                         principalTable: "Medicamentos",
                         principalColumn: "MedicamentoID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

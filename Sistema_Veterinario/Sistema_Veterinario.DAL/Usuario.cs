@@ -31,6 +31,6 @@ namespace Sistema_Veterinario.DAL
 
         public Rol ? Rol { get; set; }
 
-        public virtual ICollection<Mascota> Mascotas { get; set; } = new List<Mascota>();
+        public ICollection<Mascota> Mascotas { get; set; } = new List<Mascota>();
     }
 }

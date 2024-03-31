@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "Y:\\PROYECTO\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj": {}
+    "C:\\VisualProjects\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj": {}
   },
   "projects": {
-    "Y:\\PROYECTO\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj": {
+    "C:\\VisualProjects\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Y:\\PROYECTO\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj",
+        "projectUniqueName": "C:\\VisualProjects\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj",
         "projectName": "Sistema_Veterinario.DAL",
-        "projectPath": "Y:\\PROYECTO\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj",
-        "packagesPath": "C:\\Users\\mlaken30\\.nuget\\packages\\",
-        "outputPath": "Y:\\PROYECTO\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\obj\\",
+        "projectPath": "C:\\VisualProjects\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj",
+        "packagesPath": "C:\\Users\\gretk\\.nuget\\packages\\",
+        "outputPath": "C:\\VisualProjects\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mlaken30\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gretk\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,34 +34,13 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[8.0.3, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[8.0.3, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[8.0.3, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.3, )"
             }
@@ -77,12 +56,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

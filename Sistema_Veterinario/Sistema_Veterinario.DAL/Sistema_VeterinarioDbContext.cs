@@ -21,6 +21,7 @@ namespace Sistema_Veterinario.DAL
         public virtual DbSet<Raza> Razas { get; set; }
         public virtual DbSet<Padecimiento> Padecimientos { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<RolUsuario> RolUsuarios { get; set; }
         public virtual DbSet<Cita> Citas { get; set; }
         public virtual DbSet<DesparasitacionVacuna> DesparasitacionVacunas { get; set; }
         public virtual DbSet<Medicamento> Medicamentos { get; set; }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\josue\\OneDrive\\Escritorio\\Programacion_Avansada\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj": {}
+    "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\ProyectoFinal\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\josue\\OneDrive\\Escritorio\\Programacion_Avansada\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj": {
+    "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\ProyectoFinal\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\josue\\OneDrive\\Escritorio\\Programacion_Avansada\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\ProyectoFinal\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj",
         "projectName": "Sistema_Veterinario.DAL",
-        "projectPath": "C:\\Users\\josue\\OneDrive\\Escritorio\\Programacion_Avansada\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj",
-        "packagesPath": "C:\\Users\\josue\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\josue\\OneDrive\\Escritorio\\Programacion_Avansada\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\obj\\",
+        "projectPath": "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\ProyectoFinal\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj",
+        "packagesPath": "C:\\Users\\Steve\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Steve\\OneDrive\\Documentos\\Visual Studio 2022\\ProyectoFinal\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\josue\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Steve\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,11 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -82,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

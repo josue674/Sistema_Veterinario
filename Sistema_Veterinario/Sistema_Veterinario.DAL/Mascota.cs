@@ -30,7 +30,7 @@ namespace Sistema_Veterinario.DAL
 
         public float Peso { get; set; }
 
-        [ForeignKey("Dueno")]
+        [ForeignKey("Dueño")]
         public int DuenoID { get; set; }
 
         public string ImagenMascota { get; set; }

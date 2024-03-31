@@ -7866,19 +7866,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\josue\\.nuget\\packages\\": {}
+    "C:\\Users\\mlaken30\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\josue\\OneDrive\\Escritorio\\Programacion_Avansada\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.csproj",
+      "projectUniqueName": "Y:\\PROYECTO\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.csproj",
       "projectName": "Sistema_Veterinario",
-      "projectPath": "C:\\Users\\josue\\OneDrive\\Escritorio\\Programacion_Avansada\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.csproj",
-      "packagesPath": "C:\\Users\\josue\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\josue\\OneDrive\\Escritorio\\Programacion_Avansada\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\obj\\",
+      "projectPath": "Y:\\PROYECTO\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.csproj",
+      "packagesPath": "C:\\Users\\mlaken30\\.nuget\\packages\\",
+      "outputPath": "Y:\\PROYECTO\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\josue\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mlaken30\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7892,8 +7892,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\josue\\OneDrive\\Escritorio\\Programacion_Avansada\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj": {
-              "projectPath": "C:\\Users\\josue\\OneDrive\\Escritorio\\Programacion_Avansada\\Proyecto\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj"
+            "Y:\\PROYECTO\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj": {
+              "projectPath": "Y:\\PROYECTO\\Sistema_Veterinario\\Sistema_Veterinario\\Sistema_Veterinario.DAL\\Sistema_Veterinario.DAL.csproj"
             }
           }
         }
@@ -7965,7 +7965,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

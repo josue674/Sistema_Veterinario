@@ -60,7 +60,7 @@ namespace Sistema_Veterinario.DAL.Migrations
                     NombreUsuario = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Contraseña = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     RolID = table.Column<int>(type: "int", nullable: false),
-                    ImagenUsuario = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImagenUsuario = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UltimaConexion = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Estado = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -108,7 +108,7 @@ namespace Sistema_Veterinario.DAL.Migrations
                     Edad = table.Column<int>(type: "int", nullable: false),
                     Peso = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     DuenoID = table.Column<int>(type: "int", nullable: false),
-                    ImagenMascota = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImagenMascota = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FechaCreacion = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FechaModificacion = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Estado = table.Column<bool>(type: "bit", nullable: false)

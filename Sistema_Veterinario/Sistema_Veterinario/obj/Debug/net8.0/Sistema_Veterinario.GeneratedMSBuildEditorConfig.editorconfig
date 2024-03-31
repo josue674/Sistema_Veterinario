@@ -17,199 +17,199 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Sistema_Veterinario
 build_property.RootNamespace = Sistema_Veterinario
-build_property.ProjectDir = C:\Users\josue\OneDrive\Escritorio\Programacion_Avansada\Proyecto\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario\
+build_property.ProjectDir = Y:\PROYECTO\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\josue\OneDrive\Escritorio\Programacion_Avansada\Proyecto\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario
+build_property.MSBuildProjectDirectory = Y:\PROYECTO\Sistema_Veterinario\Sistema_Veterinario\Sistema_Veterinario
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/DesparasitacionVacunas/Create.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/DesparasitacionVacunas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzcGFyYXNpdGFjaW9uVmFjdW5hc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/DesparasitacionVacunas/Delete.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/DesparasitacionVacunas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzcGFyYXNpdGFjaW9uVmFjdW5hc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/DesparasitacionVacunas/Details.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/DesparasitacionVacunas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzcGFyYXNpdGFjaW9uVmFjdW5hc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/DesparasitacionVacunas/Edit.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/DesparasitacionVacunas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzcGFyYXNpdGFjaW9uVmFjdW5hc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/DesparasitacionVacunas/Index.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/DesparasitacionVacunas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzcGFyYXNpdGFjaW9uVmFjdW5hc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Home/Index.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Home/Privacy.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Mascotas/Create.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Mascotas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Mascotas/Delete.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Mascotas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Mascotas/Details.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Mascotas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Mascotas/Edit.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Mascotas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Mascotas/Index.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Mascotas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/MascotaUsuarioAccions/Create.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/MascotaUsuarioAccions/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YVVzdWFyaW9BY2Npb25zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/MascotaUsuarioAccions/Delete.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/MascotaUsuarioAccions/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YVVzdWFyaW9BY2Npb25zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/MascotaUsuarioAccions/Details.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/MascotaUsuarioAccions/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YVVzdWFyaW9BY2Npb25zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/MascotaUsuarioAccions/Edit.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/MascotaUsuarioAccions/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YVVzdWFyaW9BY2Npb25zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/MascotaUsuarioAccions/Index.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/MascotaUsuarioAccions/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFzY290YVVzdWFyaW9BY2Npb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Padecimientoes/Create.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Padecimientoes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkZWNpbWllbnRvZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Padecimientoes/Delete.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Padecimientoes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkZWNpbWllbnRvZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Padecimientoes/Details.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Padecimientoes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkZWNpbWllbnRvZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Padecimientoes/Edit.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Padecimientoes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkZWNpbWllbnRvZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Padecimientoes/Index.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Padecimientoes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFkZWNpbWllbnRvZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Razas/Create.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Razas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF6YXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Razas/Delete.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Razas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF6YXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Razas/Details.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Razas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF6YXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Razas/Edit.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Razas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF6YXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Razas/Index.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Razas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF6YXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Rols/Create.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Rols/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Rols/Delete.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Rols/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Rols/Details.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Rols/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Rols/Edit.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Rols/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Rols/Index.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Rols/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Shared/Error.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Shared/_ValidationScriptsPartial.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/TipoMascotas/Create.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/TipoMascotas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01hc2NvdGFzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/TipoMascotas/Delete.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/TipoMascotas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01hc2NvdGFzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/TipoMascotas/Details.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/TipoMascotas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01hc2NvdGFzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/TipoMascotas/Edit.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/TipoMascotas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01hc2NvdGFzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/TipoMascotas/Index.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/TipoMascotas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGlwb01hc2NvdGFzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Usuarios/Create.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Usuarios/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Usuarios/Delete.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Usuarios/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Usuarios/Details.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Usuarios/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Usuarios/Edit.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Usuarios/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Usuarios/Index.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Usuarios/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/_ViewImports.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/_ViewStart.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josue/OneDrive/Escritorio/Programacion_Avansada/Proyecto/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Shared/_Layout.cshtml]
+[Y:/PROYECTO/Sistema_Veterinario/Sistema_Veterinario/Sistema_Veterinario/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-65nth6sff5

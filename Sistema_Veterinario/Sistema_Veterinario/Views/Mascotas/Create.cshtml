@@ -1,4 +1,4 @@
-﻿@model Sistema_Veterinario.DAL.Mascota
+﻿@model MascotaCreateViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -41,28 +41,10 @@
                 <input asp-for="Peso" class="form-control" />
                 <span asp-validation-for="Peso" class="text-danger"></span>
             </div>
-            @* <div class="form-group">
-                <label asp-for="UsuarioCreacionId" class="control-label"></label>
-                <select asp-for="UsuarioCreacionId" class ="form-control" asp-items="ViewBag.UsuarioCreacionId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="UsuarioModificacionId" class="control-label"></label>
-                <select asp-for="UsuarioModificacionId" class ="form-control" asp-items="ViewBag.UsuarioModificacionId"></select>
-            </div> *@
             <div class="form-group">
                 <label asp-for="ImagenMascota" class="control-label"></label>
                 <input asp-for="ImagenMascota" class="form-control" />
                 <span asp-validation-for="ImagenMascota" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaCreacion" class="control-label"></label>
-                <input asp-for="FechaCreacion" class="form-control" />
-                <span asp-validation-for="FechaCreacion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaModificacion" class="control-label"></label>
-                <input asp-for="FechaModificacion" class="form-control" />
-                <span asp-validation-for="FechaModificacion" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">

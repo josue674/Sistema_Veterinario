@@ -131,6 +131,7 @@ namespace Sistema_Veterinario.Areas.Identity.Pages.Account
                 user.PrimerApellido = Input.PrimerApellido;
                 user.SegundoApellido = Input.SegundoApellido;
                 user.Estado = true;
+                user.UltimaConexion = DateTime.Now;
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)

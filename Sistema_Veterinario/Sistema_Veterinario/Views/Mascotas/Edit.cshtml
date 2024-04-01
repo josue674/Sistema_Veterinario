@@ -1,17 +1,11 @@
 ﻿@model Sistema_Veterinario.DAL.Mascota
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
+<h1>Edit</h1>
 
 <h4>Mascota</h4>
 <hr />
@@ -51,9 +45,14 @@
                 <span asp-validation-for="Peso" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DuenoID" class="control-label"></label>
-                <select asp-for="DuenoID" class="form-control" asp-items="ViewBag.DuenoID"></select>
-                <span asp-validation-for="DuenoID" class="text-danger"></span>
+                <label asp-for="UsuarioCreacionId" class="control-label"></label>
+                <select asp-for="UsuarioCreacionId" class="form-control" asp-items="ViewBag.UsuarioCreacionId"></select>
+                <span asp-validation-for="UsuarioCreacionId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UsuarioModificacionId" class="control-label"></label>
+                <select asp-for="UsuarioModificacionId" class="form-control" asp-items="ViewBag.UsuarioModificacionId"></select>
+                <span asp-validation-for="UsuarioModificacionId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ImagenMascota" class="control-label"></label>
@@ -89,5 +88,3 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-</body>
-</html>

@@ -1,17 +1,12 @@
 ﻿@model IEnumerable<Sistema_Veterinario.DAL.Mascota>
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+<h1>Index</h1>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -49,7 +44,10 @@
                 @Html.DisplayNameFor(model => model.Raza)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Dueno)
+                @Html.DisplayNameFor(model => model.UsuarioCreacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioModificacion)
             </th>
             <th></th>
         </tr>
@@ -88,7 +86,10 @@
                 @Html.DisplayFor(modelItem => item.Raza.DescripcionRaza)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Dueno.Contraseña)
+                @Html.DisplayFor(modelItem => item.UsuarioCreacion.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsuarioModificacion.Id)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.MascotaID">Edit</a> |
@@ -99,5 +100,3 @@
 }
     </tbody>
 </table>
-</body>
-</html>

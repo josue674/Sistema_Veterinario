@@ -47,11 +47,13 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.Property<int>("MascotaID")
                         .HasColumnType("int");
 
-                    b.Property<int>("VeterinarioPrincipalID")
-                        .HasColumnType("int");
+                    b.Property<string>("VeterinarioPrincipalID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("VeterinarioSecundarioID")
-                        .HasColumnType("int");
+                    b.Property<string>("VeterinarioSecundarioID")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("CitaID");
 
@@ -120,9 +122,6 @@ namespace Sistema_Veterinario.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MascotaID"));
 
-                    b.Property<int>("DuenoID")
-                        .HasColumnType("int");
-
                     b.Property<int>("Edad")
                         .HasColumnType("int");
 
@@ -158,33 +157,45 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.Property<int>("TipoMascotaID")
                         .HasColumnType("int");
 
-                    b.HasKey("MascotaID");
+                    b.Property<string>("UsuarioCreacionId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
-                    b.HasIndex("DuenoID");
+                    b.Property<string>("UsuarioModificacionId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("MascotaID");
 
                     b.HasIndex("RazaID");
 
                     b.HasIndex("TipoMascotaID");
+
+                    b.HasIndex("UsuarioCreacionId");
+
+                    b.HasIndex("UsuarioModificacionId");
 
                     b.ToTable("Mascotas");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.MascotaUsuarioAccion", b =>
                 {
-                    b.Property<int>("MascotaID")
+                    b.Property<int>("MascotaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("UsuarioCreacionID")
-                        .HasColumnType("int");
+                    b.Property<string>("UsuarioCreacionId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("UsuarioModificacionID")
-                        .HasColumnType("int");
+                    b.Property<string>("UsuarioModificacionId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("MascotaID");
+                    b.HasKey("MascotaId");
 
-                    b.HasIndex("UsuarioCreacionID");
+                    b.HasIndex("UsuarioCreacionId");
 
-                    b.HasIndex("UsuarioModificacionID");
+                    b.HasIndex("UsuarioModificacionId");
 
                     b.ToTable("MascotaUsuarioAcciones");
                 });
@@ -283,24 +294,6 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.ToTable("Razas");
                 });
 
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Rol", b =>
-                {
-                    b.Property<int>("RolID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RolID"));
-
-                    b.Property<string>("Descripcion")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("RolID");
-
-                    b.ToTable("Roles");
-                });
-
             modelBuilder.Entity("Sistema_Veterinario.DAL.TipoMascota", b =>
                 {
                     b.Property<int>("TipoMascotaID")
@@ -319,17 +312,22 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.ToTable("TipoMascotas");
                 });
 
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Usuario", b =>
+            modelBuilder.Entity("Sistema_Veterinario.DAL.UsuarioApplication", b =>
                 {
-                    b.Property<int>("UsuarioID")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UsuarioID"));
-
-                    b.Property<string>("Contraseña")
-                        .IsRequired()
+                    b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("Estado")
                         .HasColumnType("bit");
@@ -338,22 +336,57 @@ namespace Sistema_Veterinario.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NombreUsuario")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
 
-                    b.Property<int>("RolID")
-                        .HasColumnType("int");
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("PrimerApellido")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SegundoApellido")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
 
                     b.Property<DateTime>("UltimaConexion")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("UsuarioID");
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("RolID");
+                    b.HasKey("Id");
 
-                    b.ToTable("Usuarios");
+                    b.ToTable("AspNetUsers");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Cita", b =>
@@ -370,13 +403,13 @@ namespace Sistema_Veterinario.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Sistema_Veterinario.DAL.Usuario", "VeterinarioPrincipal")
+                    b.HasOne("Sistema_Veterinario.DAL.UsuarioApplication", "VeterinarioPrincipal")
                         .WithMany()
                         .HasForeignKey("VeterinarioPrincipalID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Sistema_Veterinario.DAL.Usuario", "VeterinarioSecundario")
+                    b.HasOne("Sistema_Veterinario.DAL.UsuarioApplication", "VeterinarioSecundario")
                         .WithMany()
                         .HasForeignKey("VeterinarioSecundarioID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -404,12 +437,6 @@ namespace Sistema_Veterinario.DAL.Migrations
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.Mascota", b =>
                 {
-                    b.HasOne("Sistema_Veterinario.DAL.Usuario", "Dueno")
-                        .WithMany("Mascotas")
-                        .HasForeignKey("DuenoID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Sistema_Veterinario.DAL.Raza", "Raza")
                         .WithMany("Mascotas")
                         .HasForeignKey("RazaID")
@@ -422,30 +449,44 @@ namespace Sistema_Veterinario.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Dueno");
+                    b.HasOne("Sistema_Veterinario.DAL.UsuarioApplication", "UsuarioCreacion")
+                        .WithMany()
+                        .HasForeignKey("UsuarioCreacionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Sistema_Veterinario.DAL.UsuarioApplication", "UsuarioModificacion")
+                        .WithMany()
+                        .HasForeignKey("UsuarioModificacionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Raza");
 
                     b.Navigation("TipoMascota");
+
+                    b.Navigation("UsuarioCreacion");
+
+                    b.Navigation("UsuarioModificacion");
                 });
 
             modelBuilder.Entity("Sistema_Veterinario.DAL.MascotaUsuarioAccion", b =>
                 {
                     b.HasOne("Sistema_Veterinario.DAL.Mascota", "Mascota")
                         .WithMany()
-                        .HasForeignKey("MascotaID")
+                        .HasForeignKey("MascotaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Sistema_Veterinario.DAL.Usuario", "UsuarioCreacion")
+                    b.HasOne("Sistema_Veterinario.DAL.UsuarioApplication", "UsuarioCreacion")
                         .WithMany()
-                        .HasForeignKey("UsuarioCreacionID")
+                        .HasForeignKey("UsuarioCreacionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Sistema_Veterinario.DAL.Usuario", "UsuarioModificacion")
+                    b.HasOne("Sistema_Veterinario.DAL.UsuarioApplication", "UsuarioModificacion")
                         .WithMany()
-                        .HasForeignKey("UsuarioModificacionID")
+                        .HasForeignKey("UsuarioModificacionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -497,17 +538,6 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.Navigation("TipoMascota");
                 });
 
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Usuario", b =>
-                {
-                    b.HasOne("Sistema_Veterinario.DAL.Rol", "Rol")
-                        .WithMany("Usuarios")
-                        .HasForeignKey("RolID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Rol");
-                });
-
             modelBuilder.Entity("Sistema_Veterinario.DAL.Cita", b =>
                 {
                     b.Navigation("MedicamentosCita");
@@ -537,21 +567,11 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.Navigation("Mascotas");
                 });
 
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Rol", b =>
-                {
-                    b.Navigation("Usuarios");
-                });
-
             modelBuilder.Entity("Sistema_Veterinario.DAL.TipoMascota", b =>
                 {
                     b.Navigation("Mascotas");
 
                     b.Navigation("Razas");
-                });
-
-            modelBuilder.Entity("Sistema_Veterinario.DAL.Usuario", b =>
-                {
-                    b.Navigation("Mascotas");
                 });
 #pragma warning restore 612, 618
         }

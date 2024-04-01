@@ -13,17 +13,14 @@ namespace Sistema_Veterinario.DAL
     {
         [Key]
         [ForeignKey("Mascota")]
-        public int MascotaID { get; set; }
+        public int MascotaId { get; set; }
 
-        [ForeignKey("UsuarioModificacion")]
-        public int UsuarioModificacionID { get; set; }
+        public string UsuarioCreacionId { get; set; }
 
-        [ForeignKey("UsuarioCreacion")]
-        public int UsuarioCreacionID { get; set; }
+        public string UsuarioModificacionId { get; set; }
 
-        public Usuario? UsuarioCreacion { get; set; }
-        public Usuario? UsuarioModificacion { get; set; }
-
+        public UsuarioApplication? UsuarioCreacion { get; set; }
+        public UsuarioApplication? UsuarioModificacion { get; set; }
         public Mascota? Mascota { get; set; }
 
     }

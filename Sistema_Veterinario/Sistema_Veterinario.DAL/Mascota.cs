@@ -30,8 +30,8 @@ namespace Sistema_Veterinario.DAL
 
         public float Peso { get; set; }
 
-        [ForeignKey("Dueño")]
-        public int DuenoID { get; set; }
+        public string UsuarioCreacionId { get; set; }
+        public string UsuarioModificacionId { get; set; }
 
         public string ImagenMascota { get; set; }
 
@@ -43,7 +43,9 @@ namespace Sistema_Veterinario.DAL
 
         public TipoMascota ? TipoMascota { get; set; }
         public Raza ? Raza { get; set; }
-        public Usuario ? Dueno { get; set; }
+        public UsuarioApplication? UsuarioCreacion { get; set; }
+        public UsuarioApplication? UsuarioModificacion { get; set; }
+
 
         //public MascotaUsuarioAccion ? MascotaUsuarioAccion { get; set; }
 

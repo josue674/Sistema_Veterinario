@@ -19,11 +19,9 @@ namespace Sistema_Veterinario.DAL
 
         public DateTime FechaHora { get; set; }
 
-        [ForeignKey("VeterinarioPrincipal")]
-        public int VeterinarioPrincipalID { get; set; }
+        public string VeterinarioPrincipalID { get; set; }
 
-        [ForeignKey("VeterinarioSecundario")]
-        public int VeterinarioSecundarioID { get; set; }
+        public string VeterinarioSecundarioID { get; set; }
 
         [Required]
         public string Descripcion { get; set; }
@@ -34,8 +32,8 @@ namespace Sistema_Veterinario.DAL
         public int EstadoCitaID { get; set; }
 
         public Mascota ? Mascota { get; set; }
-        public Usuario ? VeterinarioPrincipal { get; set; }
-        public Usuario ? VeterinarioSecundario { get; set; }
+        public UsuarioApplication ? VeterinarioPrincipal { get; set; }
+        public UsuarioApplication ? VeterinarioSecundario { get; set; }
         public EstadoCita ? EstadoCita { get; set; }
         public ICollection<MedicamentoCita> MedicamentosCita { get; set; } = new List<MedicamentoCita>();
     }

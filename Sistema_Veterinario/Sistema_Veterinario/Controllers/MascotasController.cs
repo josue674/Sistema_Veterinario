@@ -21,7 +21,7 @@ namespace Sistema_Veterinario.Controllers
         // GET: Mascotas
         public async Task<IActionResult> Index()
         {
-            var sistema_VeterinarioDbContext = _context.Mascotas.Include(m => m.Dueno).Include(m => m.Raza).Include(m => m.TipoMascota);
+            var sistema_VeterinarioDbContext = _context.Mascotas.Include(m => m.Raza).Include(m => m.TipoMascota).Include(m => m.UsuarioCreacion).Include(m => m.UsuarioModificacion);
             return View(await sistema_VeterinarioDbContext.ToListAsync());
         }
 
@@ -34,9 +34,10 @@ namespace Sistema_Veterinario.Controllers
             }
 
             var mascota = await _context.Mascotas
-                .Include(m => m.Dueno)
                 .Include(m => m.Raza)
                 .Include(m => m.TipoMascota)
+                .Include(m => m.UsuarioCreacion)
+                .Include(m => m.UsuarioModificacion)
                 .FirstOrDefaultAsync(m => m.MascotaID == id);
             if (mascota == null)
             {
@@ -49,9 +50,10 @@ namespace Sistema_Veterinario.Controllers
         // GET: Mascotas/Create
         public IActionResult Create()
         {
-            ViewData["DuenoID"] = new SelectList(_context.Usuarios, "UsuarioID", "Contraseña");
             ViewData["RazaID"] = new SelectList(_context.Razas, "RazaID", "DescripcionRaza");
             ViewData["TipoMascotaID"] = new SelectList(_context.TiposMascota, "TipoMascotaID", "DescripcionTipo");
+            ViewData["UsuarioCreacionId"] = new SelectList(_context.Set<UsuarioApplication>(), "Id", "Nombre");
+            ViewData["UsuarioModificacionId"] = new SelectList(_context.Set<UsuarioApplication>(), "Id", "Nombre");
             return View();
         }
 
@@ -60,7 +62,7 @@ namespace Sistema_Veterinario.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MascotaID,NombreMascota,TipoMascotaID,RazaID,Genero,Edad,Peso,DuenoID,ImagenMascota,FechaCreacion,FechaModificacion,Estado")] Mascota mascota)
+        public async Task<IActionResult> Create([Bind("MascotaID,NombreMascota,TipoMascotaID,RazaID,Genero,Edad,Peso,UsuarioCreacionId,UsuarioModificacionId,ImagenMascota,FechaCreacion,FechaModificacion,Estado")] Mascota mascota)
         {
             if (ModelState.IsValid)
             {
@@ -68,9 +70,10 @@ namespace Sistema_Veterinario.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DuenoID"] = new SelectList(_context.Usuarios, "UsuarioID", "Contraseña", mascota.DuenoID);
             ViewData["RazaID"] = new SelectList(_context.Razas, "RazaID", "DescripcionRaza", mascota.RazaID);
             ViewData["TipoMascotaID"] = new SelectList(_context.TiposMascota, "TipoMascotaID", "DescripcionTipo", mascota.TipoMascotaID);
+            ViewData["UsuarioCreacionId"] = new SelectList(_context.Set<UsuarioApplication>(), "Id", "Nombre", mascota.UsuarioCreacionId);
+            ViewData["UsuarioModificacionId"] = new SelectList(_context.Set<UsuarioApplication>(), "Id", "Nombre", mascota.UsuarioModificacionId);
             return View(mascota);
         }
 
@@ -87,9 +90,10 @@ namespace Sistema_Veterinario.Controllers
             {
                 return NotFound();
             }
-            ViewData["DuenoID"] = new SelectList(_context.Usuarios, "UsuarioID", "Contraseña", mascota.DuenoID);
             ViewData["RazaID"] = new SelectList(_context.Razas, "RazaID", "DescripcionRaza", mascota.RazaID);
             ViewData["TipoMascotaID"] = new SelectList(_context.TiposMascota, "TipoMascotaID", "DescripcionTipo", mascota.TipoMascotaID);
+            ViewData["UsuarioCreacionId"] = new SelectList(_context.Set<UsuarioApplication>(), "Id", "Nombre", mascota.UsuarioCreacionId);
+            ViewData["UsuarioModificacionId"] = new SelectList(_context.Set<UsuarioApplication>(), "Id", "Nombre", mascota.UsuarioModificacionId);
             return View(mascota);
         }
 
@@ -98,7 +102,7 @@ namespace Sistema_Veterinario.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MascotaID,NombreMascota,TipoMascotaID,RazaID,Genero,Edad,Peso,DuenoID,ImagenMascota,FechaCreacion,FechaModificacion,Estado")] Mascota mascota)
+        public async Task<IActionResult> Edit(int id, [Bind("MascotaID,NombreMascota,TipoMascotaID,RazaID,Genero,Edad,Peso,UsuarioCreacionId,UsuarioModificacionId,ImagenMascota,FechaCreacion,FechaModificacion,Estado")] Mascota mascota)
         {
             if (id != mascota.MascotaID)
             {
@@ -125,9 +129,10 @@ namespace Sistema_Veterinario.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DuenoID"] = new SelectList(_context.Usuarios, "UsuarioID", "Contraseña", mascota.DuenoID);
             ViewData["RazaID"] = new SelectList(_context.Razas, "RazaID", "DescripcionRaza", mascota.RazaID);
             ViewData["TipoMascotaID"] = new SelectList(_context.TiposMascota, "TipoMascotaID", "DescripcionTipo", mascota.TipoMascotaID);
+            ViewData["UsuarioCreacionId"] = new SelectList(_context.Set<UsuarioApplication>(), "Id", "Nombre", mascota.UsuarioCreacionId);
+            ViewData["UsuarioModificacionId"] = new SelectList(_context.Set<UsuarioApplication>(), "Id", "Nombre", mascota.UsuarioModificacionId);
             return View(mascota);
         }
 
@@ -140,9 +145,10 @@ namespace Sistema_Veterinario.Controllers
             }
 
             var mascota = await _context.Mascotas
-                .Include(m => m.Dueno)
                 .Include(m => m.Raza)
                 .Include(m => m.TipoMascota)
+                .Include(m => m.UsuarioCreacion)
+                .Include(m => m.UsuarioModificacion)
                 .FirstOrDefaultAsync(m => m.MascotaID == id);
             if (mascota == null)
             {

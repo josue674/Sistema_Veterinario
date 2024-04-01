@@ -364,25 +364,25 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.HasOne("Sistema_Veterinario.DAL.EstadoCita", "EstadoCita")
                         .WithMany("Citas")
                         .HasForeignKey("EstadoCitaID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Sistema_Veterinario.DAL.Mascota", "Mascota")
                         .WithMany("Citas")
                         .HasForeignKey("MascotaID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Sistema_Veterinario.DAL.Usuario", "VeterinarioPrincipal")
                         .WithMany()
                         .HasForeignKey("VeterinarioPrincipalID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Sistema_Veterinario.DAL.Usuario", "VeterinarioSecundario")
                         .WithMany()
                         .HasForeignKey("VeterinarioSecundarioID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("EstadoCita");
@@ -399,7 +399,7 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.HasOne("Sistema_Veterinario.DAL.Mascota", "Mascota")
                         .WithMany("DesparasitacionesVacunas")
                         .HasForeignKey("MascotaID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Mascota");
@@ -410,19 +410,19 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.HasOne("Sistema_Veterinario.DAL.Usuario", "Dueno")
                         .WithMany("Mascotas")
                         .HasForeignKey("DuenoID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Sistema_Veterinario.DAL.Raza", "Raza")
                         .WithMany("Mascotas")
                         .HasForeignKey("RazaID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Sistema_Veterinario.DAL.TipoMascota", "TipoMascota")
                         .WithMany("Mascotas")
                         .HasForeignKey("TipoMascotaID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Dueno");
@@ -437,19 +437,19 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.HasOne("Sistema_Veterinario.DAL.Mascota", "Mascota")
                         .WithMany()
                         .HasForeignKey("MascotaID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Sistema_Veterinario.DAL.Usuario", "UsuarioCreacion")
                         .WithMany()
                         .HasForeignKey("UsuarioCreacionID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Sistema_Veterinario.DAL.Usuario", "UsuarioModificacion")
                         .WithMany()
                         .HasForeignKey("UsuarioModificacionID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Mascota");
@@ -464,13 +464,13 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.HasOne("Sistema_Veterinario.DAL.Cita", "Cita")
                         .WithMany("MedicamentosCita")
                         .HasForeignKey("CitaID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Sistema_Veterinario.DAL.Medicamento", "Medicamento")
                         .WithMany("MedicamentosCita")
                         .HasForeignKey("MedicamentoID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Cita");
@@ -483,7 +483,7 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.HasOne("Sistema_Veterinario.DAL.Mascota", "Mascota")
                         .WithMany("Padecimientos")
                         .HasForeignKey("MascotaID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Mascota");
@@ -494,7 +494,7 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.HasOne("Sistema_Veterinario.DAL.TipoMascota", "TipoMascota")
                         .WithMany("Razas")
                         .HasForeignKey("TipoMascotaID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("TipoMascota");
@@ -505,7 +505,7 @@ namespace Sistema_Veterinario.DAL.Migrations
                     b.HasOne("Sistema_Veterinario.DAL.Rol", "Rol")
                         .WithMany("Usuarios")
                         .HasForeignKey("RolID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Rol");

@@ -25,6 +25,17 @@ namespace Sistema_Veterinario.DAL.Migrations.AuthDb
                     table.PrimaryKey("PK_AspNetRoles", x => x.Id);
                 });
 
+                // Insertar roles
+                migrationBuilder.InsertData(
+                    table: "AspNetRoles",
+                    columns: new[] { "Id", "Name", "NormalizedName" },
+                    values: new object[,]
+                    {
+                        { Guid.NewGuid().ToString(), "Cliente", "Cliente" },
+                        { Guid.NewGuid().ToString(), "Admin", "Admin" },
+                        { Guid.NewGuid().ToString(), "Veterinario", "Veterinario" }
+                    });
+
             migrationBuilder.CreateTable(
                 name: "AspNetUsers",
                 columns: table => new
@@ -34,7 +45,7 @@ namespace Sistema_Veterinario.DAL.Migrations.AuthDb
                     PrimerApellido = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     SegundoApellido = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Estado = table.Column<bool>(type: "bit", nullable: false),
-                    ImagenUsuario = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ImagenUsuario = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UltimaConexion = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),

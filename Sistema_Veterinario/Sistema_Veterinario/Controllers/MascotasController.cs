@@ -15,7 +15,6 @@ namespace Sistema_Veterinario.Controllers
     public class MascotasController : Controller
     {
         private readonly Sistema_VeterinarioDbContext _context;
-
         public MascotasController(Sistema_VeterinarioDbContext context)
         {
             _context = context;
@@ -32,12 +31,10 @@ namespace Sistema_Veterinario.Controllers
             {
                 // Obtener el ID del cliente actual
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
                 // Filtrar las mascotas del cliente actual
                 var mascotas = await _context.Mascotas
                     .Where(m => m.UsuarioCreacionId == userId)
                     .ToListAsync();
-
                 return View(mascotas);
             }
             else // Si es un veterinario, mostrar todas las mascotas
@@ -55,7 +52,6 @@ namespace Sistema_Veterinario.Controllers
             {
                 return NotFound();
             }
-
             var mascota = await _context.Mascotas
                 .Include(m => m.Raza)
                 .Include(m => m.TipoMascota)
@@ -66,7 +62,6 @@ namespace Sistema_Veterinario.Controllers
             {
                 return NotFound();
             }
-
             return View(mascota);
         }
 
@@ -80,7 +75,6 @@ namespace Sistema_Veterinario.Controllers
             ViewData["UsuarioModificacionId"] = new SelectList(_context.Set<UsuarioApplication>(), "Id", "Nombre");
             return View();
         }
-
         // POST: Mascotas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -130,7 +124,6 @@ namespace Sistema_Veterinario.Controllers
             {
                 return NotFound();
             }
-
             var mascota = await _context.Mascotas.FindAsync(id);
             if (mascota == null)
             {
@@ -142,7 +135,6 @@ namespace Sistema_Veterinario.Controllers
             ViewData["UsuarioModificacionId"] = new SelectList(_context.Set<UsuarioApplication>(), "Id", "Nombre", mascota.UsuarioModificacionId);
             return View(mascota);
         }
-
         // POST: Mascotas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -155,7 +147,6 @@ namespace Sistema_Veterinario.Controllers
             {
                 return NotFound();
             }
-
             if (ModelState.IsValid)
             {
                 try
@@ -182,7 +173,6 @@ namespace Sistema_Veterinario.Controllers
             ViewData["UsuarioModificacionId"] = new SelectList(_context.Set<UsuarioApplication>(), "Id", "Nombre", mascota.UsuarioModificacionId);
             return View(mascota);
         }
-
         // GET: Mascotas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -190,7 +180,6 @@ namespace Sistema_Veterinario.Controllers
             {
                 return NotFound();
             }
-
             var mascota = await _context.Mascotas
                 .Include(m => m.Raza)
                 .Include(m => m.TipoMascota)
@@ -201,10 +190,8 @@ namespace Sistema_Veterinario.Controllers
             {
                 return NotFound();
             }
-
             return View(mascota);
         }
-
         // POST: Mascotas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -215,11 +202,9 @@ namespace Sistema_Veterinario.Controllers
             {
                 _context.Mascotas.Remove(mascota);
             }
-
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
         private bool MascotaExists(int id)
         {
             return _context.Mascotas.Any(e => e.MascotaID == id);

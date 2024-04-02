@@ -3,6 +3,8 @@
 #nullable disable
 
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Sistema_Veterinario.DAL;
+
 
 namespace Sistema_Veterinario.Areas.Identity.Pages.Account
 {

@@ -1,5 +1,4 @@
-﻿@using Sistema_Veterinario.DAL
-@inject SignInManager<UsuarioApplication> SignInManager
+﻿@inject SignInManager<IdentityUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }

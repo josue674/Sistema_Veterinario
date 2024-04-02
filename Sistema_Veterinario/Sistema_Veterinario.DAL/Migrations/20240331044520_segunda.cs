@@ -41,6 +41,17 @@ namespace Sistema_Veterinario.DAL.Migrations
                     table.PrimaryKey("PK_EstadoCitas", x => x.EstadoCitaID);
                 });
 
+            // Insertar roles
+            migrationBuilder.InsertData(
+                table: "EstadoCitas",
+                columns: new[] { "EstadoCitaID", "EstadoCitaNombre" },
+                values: new object[,]
+                {
+                    { 1, "Pendiente" },
+                    { 2, "En Curso" },
+                    { 3, "Terminado" }
+                });
+
             migrationBuilder.CreateTable(
                 name: "MascotaUsuarioAcciones",
                 columns: table => new

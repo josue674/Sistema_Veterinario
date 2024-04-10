@@ -19,9 +19,6 @@ namespace Proyecto_Veterinaria.Controllers
         private string idUsuarioLogeado;
         private string tipoUsuario;
 
-        //private var identidad = User.Identity as ClaimsIdentity;
-        // privatestring idUsuarioLogeado = identidad.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
-        //string tipoUsuario = identidad.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
 
         public MascotasController(VeterinariaDbContext context)
         {
@@ -108,7 +105,7 @@ namespace Proyecto_Veterinaria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create( Mascota mascota)
+        public async Task<IActionResult> Create( Mascota mascota, IFormFile ImagenMascota)
         {
             if (ModelState.IsValid)
             {
@@ -130,7 +127,16 @@ namespace Proyecto_Veterinaria.Controllers
                     Estado = true
                 };
 
-                if(tipoUsuario == "Cliente")
+                if (ImagenMascota != null && ImagenMascota.Length > 0)
+                {
+                    using (var stream = new MemoryStream())
+                    {
+                        await ImagenMascota.CopyToAsync(stream);
+                        nuevaMascota.ImagenMascota = stream.ToArray();
+                    }
+                }
+
+                if (tipoUsuario == "Cliente")
                 {
                     nuevaMascota.UsuarioDuenoId = idUsuarioLogeado;
                 }
@@ -149,6 +155,18 @@ namespace Proyecto_Veterinaria.Controllers
             ViewData["UsuarioModificacionId"] = new SelectList(_context.Set<Usuario>(), "Id", "Nombre", mascota.UsuarioModificacionId);
             ViewData["UsuarioDuenoId"] = new SelectList(_context.Set<Usuario>(), "Id", "Nombre", mascota.UsuarioDuenoId);
             return View(mascota);
+        }
+
+        public async Task<IActionResult> GetImagenMascota(int id)
+        {
+            var mascota = await _context.Mascotas.FindAsync(id);
+
+            if (mascota == null || mascota.ImagenMascota == null)
+            {
+                return NotFound();
+            }
+
+            return File(mascota.ImagenMascota, "image/jpeg"); // Ajusta el tipo MIME según sea necesario.
         }
 
         // GET: Mascotas/Edit/5

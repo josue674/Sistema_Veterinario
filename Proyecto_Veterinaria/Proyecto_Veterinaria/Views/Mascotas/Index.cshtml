@@ -67,7 +67,7 @@
                 @Html.DisplayFor(modelItem => item.Peso)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImagenMascota)
+                    <img src="@Url.Action("GetImagenMascota", "Mascotas", new { id = item.MascotaID })" alt="Imagen Mascota" style="width: 100px; height: auto;" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FechaCreacion)

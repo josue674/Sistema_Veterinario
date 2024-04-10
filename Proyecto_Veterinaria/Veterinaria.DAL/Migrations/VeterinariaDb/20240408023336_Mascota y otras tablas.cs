@@ -98,7 +98,7 @@ namespace Veterinaria.DAL.Migrations.VeterinariaDb
                     UsuarioCreacionId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     UsuarioModificacionId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     UsuarioDuenoId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    ImagenMascota = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImagenMascota = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     FechaCreacion = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FechaModificacion = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Estado = table.Column<bool>(type: "bit", nullable: false)

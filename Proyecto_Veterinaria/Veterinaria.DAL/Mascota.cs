@@ -35,7 +35,7 @@ namespace Veterinaria.DAL
         public string UsuarioModificacionId { get; set; }
         public string UsuarioDuenoId { get; set; }
 
-        public string ImagenMascota { get; set; }
+        public byte[] ImagenMascota { get; set; }
 
         [Required]
         public DateTime FechaCreacion { get; set; }

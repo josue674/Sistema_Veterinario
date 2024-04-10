@@ -84,6 +84,50 @@
         </dd>
     </dl>
 </div>
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Citas Históricas</h5>
+    </div>
+    <div class="card-body">
+        @foreach (Cita cita in ViewData["CitasHistoricas"] as List<Cita>)
+        {
+            <div class="row mb-2">
+                <div class="col-sm-4">
+                    <strong>Fecha de la cita:</strong> @Html.DisplayFor(_ => cita.FechaHora)
+                </div>
+                <div class="col-sm-4">
+                    <strong>Descripción:</strong> @Html.DisplayFor(_ => cita.Descripcion)
+                </div>
+                <div class="col-sm-4">
+                    <strong>Diagnostico:</strong> @Html.DisplayFor(_ => cita.Diagnostico)
+                </div>
+                <div class="col-sm-4">
+                    <a asp-controller="Citas" asp-action="DetailsMascota" asp-route-id="@cita.CitaID" asp-route-ownerId="@ViewData["MascotaId"]">Ver informacion de cita</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Próximas Citas</h5>
+    </div>
+    <div class="card-body">
+        @foreach (Cita cita in ViewData["CitasProximas"] as List<Cita>)
+        {
+            <div class="row mb-2">
+                <div class="col-sm-4">
+                    <strong>Fecha de la cita:</strong> @Html.DisplayFor(_ => cita.FechaHora)
+                </div>
+                <div class="col-sm-4">
+                    <strong>Descripción:</strong> @Html.DisplayFor(_ => cita.Descripcion)
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.MascotaID">Edit</a> |
     <a asp-action="Index">Back to List</a>

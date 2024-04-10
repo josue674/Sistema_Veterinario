@@ -40,6 +40,9 @@
                 @Html.DisplayNameFor(model => model.UsuarioModificacion)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.UsuarioDueno)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.TipoMascota)
             </th>
             <th>
@@ -76,11 +79,14 @@
                 @Html.DisplayFor(modelItem => item.Estado)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UsuarioCreacion.Id)
+                @Html.DisplayFor(modelItem => item.UsuarioCreacion.Nombre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UsuarioModificacion.Id)
+                @Html.DisplayFor(modelItem => item.UsuarioModificacion.Nombre)
             </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UsuarioDueno.Nombre)
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TipoMascota.DescripcionTipo)
             </td>

@@ -48,6 +48,30 @@ namespace Proyecto_Veterinaria.Controllers
             return View(cita);
         }
 
+        public async Task<IActionResult> DetailsMascota(int? id, int? ownerId)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var cita = await _context.Citas
+                .Include(c => c.EstadoCita)
+                .Include(c => c.Mascota)
+                .Include(c => c.MedicamentosCita).ThenInclude(mc => mc.Medicamento)
+                .Include(c => c.VeterinarioPrincipal)
+                .Include(c => c.VeterinarioSecundario)
+                .FirstOrDefaultAsync(m => m.CitaID == id);
+            if (cita == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["MascotaId"] = ownerId;
+
+            return View(cita);
+        }
+
         // GET: Citas/Create
         public IActionResult Create()
         {

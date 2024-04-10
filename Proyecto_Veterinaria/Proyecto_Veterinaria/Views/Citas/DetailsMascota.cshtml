@@ -1,0 +1,79 @@
+﻿@model Veterinaria.DAL.Cita
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Cita</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaHora)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FechaHora)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Diagnostico)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Diagnostico)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Mascota)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mascota.NombreMascota)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VeterinarioPrincipal)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VeterinarioPrincipal.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VeterinarioSecundario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VeterinarioSecundario.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EstadoCita)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EstadoCita.EstadoCitaID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Información Medicamento</h5>
+        </div>
+        <div class="card-body">
+            @foreach (var item in Model.MedicamentosCita)
+            {
+                <div class="row mb-2">
+                    <div class="col-sm-4">
+                        <strong>Nombre:</strong> @Html.DisplayFor(modelItem => item.Medicamento.NombreMedicamento)
+                    </div>
+                    <div class="col-sm-4">
+                        <strong>Docis:</strong> @Html.DisplayFor(modelItem => item.Dosis)
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-controller="Mascotas" asp-action="Details" asp-route-id="@ViewData["MascotaId"]">Back to List</a>
+</div>

@@ -76,7 +76,7 @@ namespace Veterinaria.DAL.Migrations.VeterinariaDb
                         { 1, "Agendada" },
                         { 2, "Cancelada" },
                         { 3, "En Curso" },
-                        { 4, "Finalizada)" }
+                        { 4, "Finalizada" }
                 });
 
             migrationBuilder.CreateTable(

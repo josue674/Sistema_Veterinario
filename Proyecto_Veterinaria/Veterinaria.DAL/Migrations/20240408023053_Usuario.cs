@@ -31,9 +31,9 @@ namespace Veterinaria.DAL.Migrations
                     columns: new[] { "Id", "Name", "NormalizedName" },
                     values: new object[,]
                     {
-                        { Guid.NewGuid().ToString(), "Cliente", "Cliente" },
-                        { Guid.NewGuid().ToString(), "Admin", "Admin" },
-                        { Guid.NewGuid().ToString(), "Veterinario", "Veterinario" }
+                        { "C", "Cliente", "Cliente" },
+                        { "A", "Admin", "Admin" },
+                        { "V", "Veterinario", "Veterinario" }
                     });
 
             migrationBuilder.CreateTable(
@@ -65,6 +65,18 @@ namespace Veterinaria.DAL.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+            // Insertar admin
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "Nombre", "PrimerApellido", "SegundoApellido", "Estado", "ImagenUsuario", "UltimaConexion", "UserName"
+                , "NormalizedUserName", "Email", "NormalizedEmail", "EmailConfirmed","PasswordHash", "SecurityStamp", "ConcurrencyStamp",
+                "PhoneNumber", "PhoneNumberConfirmed", "TwoFactorEnabled","LockoutEnd", "LockoutEnabled", "AccessFailedCount"},
+                values: new object[,]
+                {
+                        {"9afec4b0-85b3-4c92-8040-830de422e2a9", "Admin", "Admin", "Admin", true, null, "2024-04-11T10:10:32.1918780" , "Admin@admin.admin"
+                , "ADMIN@ADMIN.ADMIN", "Admin@admin.admin", "ADMIN@ADMIN.ADMIN", false, "AQAAAAIAAYagAAAAEMF1DnWDx2QLvPP1x87RsOTO9kMgrXpIGDnveJcqBEjy/FWYP/4AV/5S73uo8WZl3A==",
+                        "EEHEXBHN5I44YQJWOA2CUXNGZV5ZY7CA", "d44039df-8179-49b5-acf2-59f7b258882e",null, false , false ,null,true, 0 }
                 });
 
             migrationBuilder.CreateTable(
@@ -151,6 +163,15 @@ namespace Veterinaria.DAL.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            // Insertar UserRoles
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "UserId", "RoleId" },
+                values: new object[,]
+                {
+                        { "9afec4b0-85b3-4c92-8040-830de422e2a9", "A" }
                 });
 
             migrationBuilder.CreateTable(

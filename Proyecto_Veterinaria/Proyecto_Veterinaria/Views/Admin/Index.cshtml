@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Veterinaria.DAL.Cita>
+
+@{
+    ViewData["Title"] = "Index";
+    var identidad = User.Identity as ClaimsIdentity;
+    string tipoUsuario = identidad.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
+}
+
+<h1>Index</h1>
+
+<p>
+    @{
+        if (tipoUsuario == "Veterinario")
+        {
+            <a asp-action="Create">Create New</a>
+        }
+    }
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaHora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Diagnostico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mascota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VeterinarioPrincipal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VeterinarioSecundario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoCita)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaHora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diagnostico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mascota.NombreMascota)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.VeterinarioPrincipal.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VeterinarioSecundario.Nombre)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.EstadoCita.EstadoCitaNombre)
+            </td>
+            <td>
+                    @{
+                        if (tipoUsuario == "Veterinario")
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.CitaID">Edit</a>
+                        }
+                    }|
+                <a asp-action="Details" asp-route-id="@item.CitaID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CitaID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

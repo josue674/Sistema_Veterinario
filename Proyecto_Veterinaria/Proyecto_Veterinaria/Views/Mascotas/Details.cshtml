@@ -32,7 +32,7 @@
             @Html.DisplayNameFor(model => model.ImagenMascota)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImagenMascota)
+            <img src="@Url.Action("GetImagenMascota", "Mascotas", new { id = Model.MascotaID })" alt="Imagen Mascota" style="width: 100px; height: auto;" />
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.FechaCreacion)
@@ -56,13 +56,19 @@
             @Html.DisplayNameFor(model => model.UsuarioCreacion)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UsuarioCreacion.Id)
+            @Html.DisplayFor(model => model.UsuarioCreacion.Nombre)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.UsuarioModificacion)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UsuarioModificacion.Id)
+            @Html.DisplayFor(model => model.UsuarioModificacion.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UsuarioDueno)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UsuarioDueno.Nombre)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.TipoMascota)

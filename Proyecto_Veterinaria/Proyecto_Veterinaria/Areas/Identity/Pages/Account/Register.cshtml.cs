@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -84,6 +85,13 @@ namespace Proyecto_Veterinaria.Areas.Identity.Pages.Account
             public string SegundoApellido { get; set; }
 
             [Required]
+            [DefaultValue("True")]
+            public bool Estado { get; set; }
+
+            public IFormFile ImagenUsuario { get; set; }
+            public DateTime UltimaConexion { get; set; }
+
+            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -115,7 +123,7 @@ namespace Proyecto_Veterinaria.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        public async Task<IActionResult> OnPostAsync( string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
@@ -129,6 +137,14 @@ namespace Proyecto_Veterinaria.Areas.Identity.Pages.Account
                 user.SegundoApellido = Input.SegundoApellido;
                 user.Estado = true;
                 user.UltimaConexion = DateTime.Now;
+                if (Input.ImagenUsuario != null && Input.ImagenUsuario.Length > 0)
+                {
+                    using (var stream = new MemoryStream())
+                    {
+                        await Input.ImagenUsuario.CopyToAsync(stream);
+                        user.ImagenUsuario = stream.ToArray();
+                    }
+                }
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)

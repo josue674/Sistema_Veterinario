@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Proyecto_Veterinaria.Models
 {
-    public class AdminCrearUsuarioViewModel
+    public class EditUserViewModel
     {
-        public string Id { get; set; }
-
         [Required]
         [MaxLength(100)]
         public string Nombre { get; set; }
@@ -50,6 +49,8 @@ namespace Proyecto_Veterinaria.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        public string IdRol {  get; set; }
+        public string SelectedRoleId { get; set; }
+        public SelectList Roles { get; set; }
+        public string Id { get; internal set; }
     }
 }

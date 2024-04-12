@@ -1,83 +1,63 @@
-﻿@model IEnumerable<Veterinaria.DAL.Cita>
+﻿@model IEnumerable<UserRoleViewModel>
 
 @{
     ViewData["Title"] = "Index";
-    var identidad = User.Identity as ClaimsIdentity;
-    string tipoUsuario = identidad.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
 }
 
 <h1>Index</h1>
 
 <p>
-    @{
-        if (tipoUsuario == "Veterinario")
-        {
-            <a asp-action="Create">Create New</a>
-        }
-    }
+    <a asp-action="CrearUsuario">Create New User</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaHora)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Diagnostico)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Mascota)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VeterinarioPrincipal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VeterinarioSecundario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EstadoCita)
-            </th>
-            <th></th>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Imagen</th>
+            <th>Estado</th>
+            <th>Última Conexión</th>
+            <th>Rol</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaHora)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Diagnostico)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Mascota.NombreMascota)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => item.VeterinarioPrincipal.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VeterinarioSecundario.Nombre)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => item.EstadoCita.EstadoCitaNombre)
-            </td>
-            <td>
-                    @{
-                        if (tipoUsuario == "Veterinario")
+        @foreach (var viewModel in Model)
+        {
+            <tr>
+                <td>@viewModel.User.Id</td>
+                <td>@viewModel.User.Nombre</td>
+                <td>
+                    @if (viewModel.User.ImagenUsuario != null)
+                    {
+                        <img src="data:image/png;base64,@Convert.ToBase64String(viewModel.User.ImagenUsuario)" width="50" height="50" />
+                    }
+                </td>
+                <td>@viewModel.User.Estado</td>
+                <td>@viewModel.User.UltimaConexion.ToString("yyyy-MM-dd HH:mm")</td>
+                <td>
+                    @foreach (var role in viewModel.Roles)
+                    {
+                        @role @if (viewModel.Roles.Last() != role)
                         {
-                            <a asp-action="Edit" asp-route-id="@item.CitaID">Edit</a>
+                            <text>, </text>
                         }
-                    }|
-                <a asp-action="Details" asp-route-id="@item.CitaID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CitaID">Delete</a>
-            </td>
-        </tr>
-}
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@viewModel.User.Id">Edit</a> |
+                    @{
+                        if (@viewModel.User.Estado == true)
+                        {
+                            <a asp-action="Delete" asp-route-id="@viewModel.User.Id">Delete</a>
+                        }
+                        else
+                        {
+                            <a asp-action="Activar" asp-route-id="@viewModel.User.Id">Activar</a>
+                        }
+                    }
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

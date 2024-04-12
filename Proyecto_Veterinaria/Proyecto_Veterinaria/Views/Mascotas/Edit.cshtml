@@ -18,21 +18,9 @@
                 <input asp-for="NombreMascota" class="form-control" />
                 <span asp-validation-for="NombreMascota" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="TipoMascotaId" class="control-label"></label>
-                <select asp-for="TipoMascotaId" class="form-control" asp-items="ViewBag.TipoMascotaId"></select>
-                <span asp-validation-for="TipoMascotaId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RazaId" class="control-label"></label>
-                <select asp-for="RazaId" class="form-control" asp-items="ViewBag.RazaId"></select>
-                <span asp-validation-for="RazaId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="GeneroId" class="control-label"></label>
-                <select asp-for="GeneroId" class="form-control" asp-items="ViewBag.GeneroId"></select>
-                <span asp-validation-for="GeneroId" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="TipoMascotaId" class="form-control"></input>
+            <input type="hidden" asp-for="RazaId" class="form-control"></input>
+            <input type="hidden" asp-for="GeneroId" class="form-control"></input>
             <div class="form-group">
                 <label asp-for="Edad" class="control-label"></label>
                 <input asp-for="Edad" class="form-control" />
@@ -43,38 +31,22 @@
                 <input asp-for="Peso" class="form-control" />
                 <span asp-validation-for="Peso" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="UsuarioCreacionId" class="control-label"></label>
-                <select asp-for="UsuarioCreacionId" class="form-control" asp-items="ViewBag.UsuarioCreacionId"></select>
-                <span asp-validation-for="UsuarioCreacionId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UsuarioModificacionId" class="control-label"></label>
-                <select asp-for="UsuarioModificacionId" class="form-control" asp-items="ViewBag.UsuarioModificacionId"></select>
-                <span asp-validation-for="UsuarioModificacionId" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="UsuarioCreacionId" class="form-control" ></input>
+            <input type="hidden" asp-for="UsuarioModificacionId" class="form-control" ></input>
             <div class="form-group">
                 <label asp-for="ImagenMascota" class="control-label"></label>
-                <input asp-for="ImagenMascota" class="form-control" />
+                <img src="@Url.Action("GetImagenMascota", "Mascotas", new { id = Model.MascotaID })" alt="Imagen Mascota" style="width: 100px; height: auto;" />
                 <span asp-validation-for="ImagenMascota" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="FechaCreacion" class="control-label"></label>
-                <input asp-for="FechaCreacion" class="form-control" />
-                <span asp-validation-for="FechaCreacion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaModificacion" class="control-label"></label>
-                <input asp-for="FechaModificacion" class="form-control" />
-                <span asp-validation-for="FechaModificacion" class="text-danger"></span>
-            </div>
+                    <input type="hidden" asp-for="FechaCreacion" class="form-control" />
+                    <input type="hidden" asp-for="FechaModificacion" class="form-control" />
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Estado" /> @Html.DisplayNameFor(model => model.Estado)
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Edit" class="btn btn-primary" />
             </div>
         </form>
     </div>

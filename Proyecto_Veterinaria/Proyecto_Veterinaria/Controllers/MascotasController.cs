@@ -39,20 +39,18 @@ namespace Proyecto_Veterinaria.Controllers
         // GET: Mascotas
         public async Task<IActionResult> Index()
         {
-            var identidad = User.Identity as ClaimsIdentity;
-            string userId = identidad.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
-            string userType = identidad.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
-
+            
             IQueryable<Mascota> query = _context.Mascotas
                 .Include(m => m.Genr)
                 .Include(m => m.Raza)
                 .Include(m => m.TipoMascota)
                 .Include(m => m.UsuarioCreacion)
-                .Include(m => m.UsuarioModificacion);
+                .Include(m => m.UsuarioModificacion)
+                .Include(m => m.UsuarioDueno);
 
-            if (userType == "Cliente")
+            if (tipoUsuario == "Cliente")
             {
-                query = query.Where(m => m.UsuarioDuenoId == userId);
+                query = query.Where(m => m.UsuarioDuenoId == idUsuarioLogeado);
             }
 
             return View(await query.ToListAsync());
@@ -142,12 +140,13 @@ namespace Proyecto_Veterinaria.Controllers
                 }
                 else
                 {
-                    nuevaMascota.UsuarioDueno = mascota.UsuarioDueno;
+                    nuevaMascota.UsuarioDuenoId = mascota.UsuarioDuenoId;
                 }
                 _context.Add(nuevaMascota);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IdMacota"] = mascota.MascotaID;
             ViewData["GeneroId"] = new SelectList(_context.Set<Genero>(), "GenroId", "TipoGenero", mascota.GeneroId);
             ViewData["RazaId"] = new SelectList(_context.Razas, "RazaID", "DescripcionRaza", mascota.RazaId);
             ViewData["TipoMascotaId"] = new SelectList(_context.TiposMascota, "TipoMascotaID", "DescripcionTipo", mascota.TipoMascotaId);
@@ -205,27 +204,22 @@ namespace Proyecto_Veterinaria.Controllers
 
             if (ModelState.IsValid)
             {
+                var mascotaParaActualizar = await _context.Mascotas.FindAsync(id);
+                if (mascotaParaActualizar == null)
+                {
+                    return NotFound();
+                }
+
                 try
                 {
-                    // Transformación
-                    Mascota editMascota = new()
-                    {
-                        NombreMascota = mascota.NombreMascota,
-                        TipoMascotaId = mascota.TipoMascotaId,
-                        RazaId = mascota.RazaId,
-                        GeneroId = mascota.GeneroId,
-                        Edad = mascota.Edad,
-                        Peso = mascota.Peso,
-                        ImagenMascota = mascota.ImagenMascota,
-                        FechaCreacion = mascota.FechaCreacion,
-                        UsuarioCreacionId = mascota.UsuarioCreacionId,
-                        UsuarioDuenoId = mascota.UsuarioDuenoId,
-                        FechaModificacion = DateTime.Now,
-                        UsuarioModificacionId = idUsuarioLogeado,
-                        Estado = mascota.Estado
-                    };
+                    // Actualizar las propiedades de la mascota existente con los nuevos valores
+                    mascotaParaActualizar.Edad = mascota.Edad;
+                    mascotaParaActualizar.Peso = mascota.Peso;
+                    mascotaParaActualizar.FechaModificacion = DateTime.Now;
+                    mascotaParaActualizar.UsuarioModificacionId = idUsuarioLogeado;
+                    mascotaParaActualizar.Estado = mascota.Estado;
 
-                    _context.Update(editMascota);
+                    // _context.Update(editMascota); // No es necesario si usas rastreo automático de entidades
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

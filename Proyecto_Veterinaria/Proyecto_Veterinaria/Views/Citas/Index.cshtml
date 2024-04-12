@@ -16,68 +16,61 @@
         }
     }
 </p>
+<h2>Historial de Citas</h2>
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FechaHora)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Diagnostico)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Mascota)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VeterinarioPrincipal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VeterinarioSecundario)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EstadoCita)
-            </th>
-            <th></th>
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>Veterinario Principal</th>
+            <th>Veterinario Secundario</th>
+            <th>Detalles</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (Cita cita in ViewData["Historial"] as List<Cita> )
+        {
+            <tr>
+                <td>@cita.FechaHora.ToString("g")</td>
+                <td>@cita.Descripcion</td>
+                <td>@cita.VeterinarioPrincipal.Nombre</td>
+                <td>@cita.VeterinarioSecundario.Nombre</td>
+                <td><a asp-action="Details" asp-route-id="@cita.CitaID">Ver Detalle</a></td>
+                <td>
+                    <!-- Enlaces o botones para editar, según corresponda -->
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Próximas Citas</h2>
+<table class="table">
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaHora)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Diagnostico)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Mascota.NombreMascota)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => item.VeterinarioPrincipal.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VeterinarioSecundario.Nombre)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => item.EstadoCita.EstadoCitaNombre)
-            </td>
-            <td>
-                    @{
-                        if (tipoUsuario == "Veterinario")
-                        {
-                            <a asp-action="Edit" asp-route-id="@item.CitaID">Edit</a>
-                        }
-                    }|
-                <a asp-action="Details" asp-route-id="@item.CitaID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CitaID">Delete</a>
-            </td>
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>Veterinario Principal</th>
+            <th>Veterinario Secundario</th>
+            <th>Detalles</th>
+            <th>Acciones</th>
         </tr>
-}
+    </thead>
+    <tbody>
+        @foreach (Cita cita in ViewData["Proximas"] as List<Cita>)
+        {
+            <tr>
+                <td>@cita.FechaHora.ToString("g")</td>
+                <td>@cita.Descripcion</td>
+                <td>@cita.VeterinarioPrincipal.Nombre</td>
+                <td>@cita.VeterinarioSecundario.Nombre</td>
+                <td><a asp-action="Details" asp-route-id="@cita.CitaID">Ver Detalle</a></td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@cita.CitaID">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@cita.CitaID">Eliminar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

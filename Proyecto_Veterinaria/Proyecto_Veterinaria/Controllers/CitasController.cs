@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Veterinaria.DAL;
@@ -12,18 +14,63 @@ namespace Proyecto_Veterinaria.Controllers
     public class CitasController : Controller
     {
         private readonly VeterinariaDbContext _context;
-
+        
+        private ClaimsIdentity identidad;
+        private string idUsuarioLogeado;
+        private string tipoUsuario;
         public CitasController(VeterinariaDbContext context)
         {
             _context = context;
         }
 
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            base.OnActionExecuting(context);
+            identidad = User.Identity as ClaimsIdentity;
+            if (identidad != null)
+            {
+                idUsuarioLogeado = identidad.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+                tipoUsuario = identidad.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+            }
+        }
+
+        // GET: Citas
         // GET: Citas
         public async Task<IActionResult> Index()
         {
-            var veterinariaDbContext = _context.Citas.Include(c => c.EstadoCita).Include(c => c.Mascota).Include(c => c.VeterinarioPrincipal).Include(c => c.VeterinarioSecundario);
-            return View(await veterinariaDbContext.ToListAsync());
+            var today = DateTime.Today;
+            var veterinarioId = idUsuarioLogeado; // Asegúrate de que este ID es el correcto para el veterinario actual
+
+            var citasHistorial = await _context.Citas
+                .Where(c => c.FechaHora.Date < today &&
+                            (c.VeterinarioPrincipalID == veterinarioId || c.VeterinarioSecundarioID == veterinarioId))
+                .Include(c => c.EstadoCita)
+                .Include(c => c.Mascota)
+                .Include(c => c.VeterinarioPrincipal)
+                .Include(c => c.VeterinarioSecundario)
+                .ToListAsync();
+
+            var citasProximas = await _context.Citas
+                .Where(c => c.FechaHora.Date >= today &&
+                            (c.VeterinarioPrincipalID == veterinarioId || c.VeterinarioSecundarioID == veterinarioId))
+                .Include(c => c.EstadoCita)
+                .Include(c => c.Mascota)
+                .Include(c => c.VeterinarioPrincipal)
+                .Include(c => c.VeterinarioSecundario)
+                .ToListAsync();
+            // Prepara el modelo de vista, podría ser un objeto anónimo si no tienes una clase específica
+            //var model = new
+            //{
+            //    Historial = citasHistorial,
+            //    Proximas = citasProximas
+            //};
+            //return View(model);
+            ViewData["Historial"] = citasHistorial;
+            ViewData["Proximas"] = citasProximas;
+
+            return View();
         }
+
 
         // GET: Citas/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -146,12 +193,6 @@ namespace Proyecto_Veterinaria.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-
-            // Si llegamos aquí, algo falló, vuelve a cargar el formulario
-            //ViewData["EstadoCitaID"] = new SelectList(_context.EstadoCitas, "EstadoCitaID", "EstadoCitaNombre", cita.EstadoCitaID);
-            //ViewData["MascotaID"] = new SelectList(_context.Mascotas, "MascotaID", "NombreMascota", cita.MascotaID); // Asegúrate de mostrar un texto adecuado en el dropdown
-            //ViewData["VeterinarioPrincipalID"] = new SelectList(_context.Usuarios.Where(u => u.Rol == RolVeterinario), "UsuarioID", "NombreUsuario", cita.VeterinarioPrincipalID);
-            //ViewData["VeterinarioSecundarioID"] = new SelectList(_context.Usuarios.Where(u => u.Rol == RolVeterinario), "UsuarioID", "NombreUsuario", cita.VeterinarioSecundarioID);
             ViewData["EstadoCitaID"] = new SelectList(_context.EstadoCitas, "EstadoCitaID", "EstadoCitaNombre");
             ViewData["MascotaID"] = new SelectList(_context.Mascotas, "MascotaID", "NombreMascota");
             ViewData["VeterinarioPrincipalID"] = new SelectList(_context.Set<Usuario>(), "Id", "Nombre");
@@ -190,7 +231,7 @@ namespace Proyecto_Veterinaria.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CitaID,MascotaID,FechaHora,VeterinarioPrincipalID,VeterinarioSecundarioID,Descripcion,Diagnostico,EstadoCitaID")] Cita cita)
+        public async Task<IActionResult> Edit(int id, Cita cita)
         {
             if (id != cita.CitaID)
             {

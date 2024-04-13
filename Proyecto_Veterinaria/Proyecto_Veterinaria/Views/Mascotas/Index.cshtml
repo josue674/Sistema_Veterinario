@@ -20,6 +20,7 @@
                     <div class="card-text">
                         <strong>Edad:</strong> @Html.DisplayFor(modelItem => item.Edad) años<br>
                         <strong>Peso:</strong> @Html.DisplayFor(modelItem => item.Peso) kg<br>
+                        <strong>Estado :</strong> @Html.DisplayFor(modelItem => item.Estado)<br>
                         <strong>Creado:</strong> @item.FechaCreacion.ToString("dd/MM/yyyy")<br>
                         <strong>Modificado:</strong> @item.FechaModificacion.ToString("dd/MM/yyyy")<br>
                         <strong>Dueño:</strong> @Html.DisplayFor(modelItem => item.UsuarioDueno.Nombre)<br>

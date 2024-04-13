@@ -1,8 +1,86 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Página Principal";
+    bool isLoggedIn = User.Identity.IsAuthenticated;
+    string userRole = isLoggedIn ? (User.IsInRole("Admin") ? "Administrador" :
+                                    User.IsInRole("Veterinarian") ? "Veterinario" : "Cliente") : "Invitado";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="login-box">
+        <h1 class="display-2">Bienvenido, @userRole!</h1>
+        @if (isLoggedIn)
+        {
+            if (userRole == "Administrador")
+            {
+                <p>Bienvenido al panel de administración donde puedes gestionar todos los aspectos de la aplicación.</p>
+            }
+            else if (userRole == "Veterinario")
+            {
+                <p>¡Bienvenido, estimado veterinario! Aquí puedes gestionar tus citas y registros de pacientes.</p>
+            }
+            else
+            {
+                <p>¡Bienvenido a nuestro sitio, estimado cliente! Consulta aquí los registros de salud de tus mascotas y tus próximas citas.</p>
+            }
+        }
+        else
+        {
+            <p>Por favor, inicia sesión para acceder a tu cuenta.</p>
+                <a class="btn btn-secondary" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                <a class="btn btn-primary" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        }
+       
+    </div>
 </div>
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0 auto;
+    }
+
+    .login-box {
+        text-align: center;
+        color: #333;
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        width: 80%;
+        max-width: 600px;
+    }
+
+    .display-4 {
+        font-size: 2.5rem;
+        color: #0056b3;
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+        margin: 10px;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+    }
+</style>

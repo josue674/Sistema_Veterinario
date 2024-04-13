@@ -4,24 +4,88 @@
     ViewData["Title"] = "Editar Usuario";
 }
 
-<h2>@ViewData["Title"]</h2>
+<div class="container">
+    <div class="edit-user-box">
+        <h2>@ViewData["Title"]</h2>
 
-<form asp-action="Edit">
-    <input type="hidden" asp-for="Id" />
-    <div class="form-group">
-        <label asp-for="SelectedRoleId" class="control-label">Rol</label>
-        <select asp-for="SelectedRoleId" class="form-control" asp-items="@Model.Roles"></select>
-        <span asp-validation-for="SelectedRoleId" class="text-danger"></span>
+        <form asp-action="Edit" class="edit-form">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="SelectedRoleId" class="control-label">Rol</label>
+                <select asp-for="SelectedRoleId" class="form-control" asp-items="@Model.Roles"></select>
+                <span asp-validation-for="SelectedRoleId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Guardar Cambios" class="btn btn-primary" />
+            </div>
+        </form>
+
+        <div class="back-link">
+            <a href="@Url.Action("Index")" class="btn btn-secondary">Volver a la lista</a>
+        </div>
     </div>
-
-    <div class="form-group">
-        <input type="submit" value="Edit" class="btn btn-primary" />
-    </div>
-</form>
-
-<div>
-    <a asp-action="Index">Volver a la lista</a>
 </div>
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0 auto;
+    }
+
+    .edit-user-box {
+        width: 100%;
+        max-width: 500px;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 10px 20px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        padding: 10px 20px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .back-link {
+        margin-top: 20px;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+</style>
 
 @section Scripts {
     @{

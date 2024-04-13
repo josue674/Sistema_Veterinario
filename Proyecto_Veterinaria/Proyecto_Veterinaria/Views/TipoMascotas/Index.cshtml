@@ -1,35 +1,87 @@
 ﻿@model IEnumerable<Veterinaria.DAL.TipoMascota>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Índice de Tipos de Mascota";
 }
 
-<h1>Index</h1>
+<div class="container">
+    <h1>Tipos de Mascota</h1>
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Crear Nuevo Tipo</a>
+    </p>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DescripcionTipo)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DescripcionTipo)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TipoMascotaID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TipoMascotaID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TipoMascotaID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="card-container">
+        @foreach (var item in Model)
+        {
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.DescripcionTipo)</h5>
+                    <div class="card-actions">
+                        <a asp-action="Edit" asp-route-id="@item.TipoMascotaID" class="btn btn-secondary">Editar</a>
+                        <a asp-action="Details" asp-route-id="@item.TipoMascotaID" class="btn btn-info">Detalles</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .container {
+        margin: 20px;
+    }
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .card {
+        flex: 1 1 300px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+        background-color: #f8f9fa;
+    }
+
+    .card-body {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        color: #333;
+    }
+
+    .card-actions > a {
+        margin-right: 10px;
+        color: white;
+        text-decoration: none;
+        padding: 5px 10px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>

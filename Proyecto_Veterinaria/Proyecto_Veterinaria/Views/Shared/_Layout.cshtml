@@ -9,82 +9,78 @@
     <link rel="stylesheet" href="~/Proyecto_Veterinaria.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Proyecto_Veterinaria</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-					<ul class="navbar-nav flex-grow-1">
-                        @{
-                            ClaimsIdentity identidad = User.Identity as ClaimsIdentity;
-                            string tipoUsuario = identidad?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
-                            try
-                            {
+	@{
+		bool isLoggedIn = User.Identity.IsAuthenticated;
+		ClaimsIdentity identidad = User.Identity as ClaimsIdentity;
+		string tipoUsuario = identidad?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+		if (isLoggedIn)
+		{
 
-                                if (tipoUsuario != null && tipoUsuario.Equals("Admin"))
-                                {
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Usuario</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Razas" asp-action="Index">Razas</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Medicamentoes" asp-action="Index">Medicamentoes</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="TipoMascotas" asp-action="Index">TipoMascotas</a>
-                                    </li>
-                                }
-                                if (tipoUsuario != null && (tipoUsuario.Equals("Cliente") || tipoUsuario.Equals("Veterinario")))
-                                {
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-dark" asp-area="" asp-controller="Mascotas" asp-action="index">Mascotas</a>
-                                    </li>
-                                    if (tipoUsuario != null && tipoUsuario.Equals("Veterinario"))
-                                    {
-                                        <li class="nav-item">
-                                            <a class="nav-link text-dark" asp-area="" asp-controller="Citas" asp-action="index">Cita</a>
-                                        </li>
-                                    }
-                                    
-                                }
-                            }
-                            catch (Exception e)
-                            {
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark">inicia secion =></a>
-                                </li>
-                            }
-                        }
+			<header>
+				<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+					<div class="container-fluid">
+						<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Proyecto_Veterinaria</a>
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+								aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+							<ul class="navbar-nav flex-grow-1">
+								@{
+									try
+									{
 
-					</ul>
-                    <partial name="_LoginPartial"/>
-                </div>
-            </div>
-        </nav>
-    </header>
+										if (tipoUsuario != null && tipoUsuario.Equals("Admin"))
+										{
+											<li class="nav-item">
+												<a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Usuario</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link text-dark" asp-area="" asp-controller="Razas" asp-action="Index">Razas</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link text-dark" asp-area="" asp-controller="Medicamentoes" asp-action="Index">Medicamentos</a>
+											</li>
+											<li class="nav-item">
+												<a class="nav-link text-dark" asp-area="" asp-controller="TipoMascotas" asp-action="Index">TipoMascotas</a>
+											</li>
+										}
+										if (tipoUsuario != null && (tipoUsuario.Equals("Cliente") || tipoUsuario.Equals("Veterinario")))
+										{
+											<li class="nav-item">
+												<a class="nav-link text-dark" asp-area="" asp-controller="Mascotas" asp-action="index">Mascotas</a>
+											</li>
+											if (tipoUsuario != null && tipoUsuario.Equals("Veterinario"))
+											{
+												<li class="nav-item">
+													<a class="nav-link text-dark" asp-area="" asp-controller="Citas" asp-action="index">Cita</a>
+												</li>
+											}
+
+										}
+									}
+									catch (Exception e)
+									{
+										<li class="nav-item">
+											<a class="nav-link text-dark">inicia secion =></a>
+										</li>
+									}
+								}
+
+							</ul>
+							<partial name="_LoginPartial" />
+						</div>
+					</div>
+				</nav>
+			</header>
+
+		}
+	}
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - Proyecto_Veterinaria - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

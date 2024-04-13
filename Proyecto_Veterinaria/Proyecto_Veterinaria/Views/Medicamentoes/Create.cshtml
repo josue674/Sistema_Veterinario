@@ -1,38 +1,95 @@
 ﻿@model Veterinaria.DAL.Medicamento
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Medicamento";
 }
 
-<h1>Create</h1>
-
-<h4>Medicamento</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="container">
+    <div class="create-medicamento-box">
+        <h1>Crear Medicamento</h1>
+        <h4>Detalles del Medicamento</h4>
+        <hr />
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="NombreMedicamento" class="control-label"></label>
-                <input asp-for="NombreMedicamento" class="form-control" />
+                <label asp-for="NombreMedicamento" class="control-label">Nombre del Medicamento</label>
+                <input asp-for="NombreMedicamento" class="form-control" placeholder="Ingrese el nombre del medicamento" />
                 <span asp-validation-for="NombreMedicamento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Descripcion" class="control-label"></label>
-                <input asp-for="Descripcion" class="form-control" />
+                <label asp-for="Descripcion" class="control-label">Descripción</label>
+                <input asp-for="Descripcion" class="form-control" placeholder="Descripción del medicamento" />
                 <span asp-validation-for="Descripcion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Crear" class="btn btn-primary" />
             </div>
         </form>
+        <div class="back-link">
+            <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding: 20px;
+        margin: 0 auto;
+    }
+
+    .create-medicamento-box {
+        width: 100%;
+        max-width: 600px;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 10px 20px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        padding: 10px 20px;
+        color: white;
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+</style>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

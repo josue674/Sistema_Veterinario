@@ -1,39 +1,95 @@
 ﻿@model Veterinaria.DAL.Raza
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Raza";
 }
 
-<h1>Edit</h1>
-
-<h4>Raza</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="container">
+    <div class="edit-raza-box">
+        <h1>Editar</h1>
+        <h4>Detalles de la Raza</h4>
+        <hr />
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="RazaID" />
             <div class="form-group">
-                <label asp-for="DescripcionRaza" class="control-label"></label>
-                <input asp-for="DescripcionRaza" class="form-control" />
+                <label asp-for="DescripcionRaza" class="control-label">Descripción de la Raza</label>
+                <input asp-for="DescripcionRaza" class="form-control" placeholder="Ingrese descripción de la raza" />
                 <span asp-validation-for="DescripcionRaza" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TipoMascotaID" class="control-label"></label>
+                <label asp-for="TipoMascotaID" class="control-label">Tipo de Mascota</label>
                 <select asp-for="TipoMascotaID" class="form-control" asp-items="ViewBag.TipoMascotaID"></select>
                 <span asp-validation-for="TipoMascotaID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Guardar" class="btn btn-primary" />
             </div>
         </form>
+        <div class="back-link">
+            <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0 auto;
+    }
+
+    .edit-raza-box {
+        width: 100%;
+        max-width: 500px;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 10px 20px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        padding: 10px 20px;
+        color: white;
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+</style>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

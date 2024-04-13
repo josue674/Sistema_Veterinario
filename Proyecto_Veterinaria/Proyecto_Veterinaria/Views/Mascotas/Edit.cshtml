@@ -1,61 +1,117 @@
 ﻿@model Veterinaria.DAL.Mascota
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Mascota";
 }
 
-<h1>Edit</h1>
-
-<h4>Mascota</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="container">
+    <div class="edit-mascota-box">
+        <h1>Editar Mascota</h1>
+        <h4>Detalles de la Mascota</h4>
+        <hr />
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="MascotaID" />
+
             <div class="form-group">
-                <label asp-for="NombreMascota" class="control-label"></label>
-                <input asp-for="NombreMascota" class="form-control" />
+                <label asp-for="NombreMascota" class="control-label">Nombre de la Mascota</label>
+                <input asp-for="NombreMascota" class="form-control" placeholder="Ingrese el nombre de la mascota" />
                 <span asp-validation-for="NombreMascota" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="TipoMascotaId" class="form-control"></input>
-            <input type="hidden" asp-for="RazaId" class="form-control"></input>
-            <input type="hidden" asp-for="GeneroId" class="form-control"></input>
+
             <div class="form-group">
-                <label asp-for="Edad" class="control-label"></label>
-                <input asp-for="Edad" class="form-control" />
+                <label asp-for="Edad" class="control-label">Edad</label>
+                <input asp-for="Edad" class="form-control" placeholder="Ingrese la edad de la mascota" />
                 <span asp-validation-for="Edad" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Peso" class="control-label"></label>
-                <input asp-for="Peso" class="form-control" />
+                <label asp-for="Peso" class="control-label">Peso (kg)</label>
+                <input asp-for="Peso" class="form-control" placeholder="Ingrese el peso de la mascota" />
                 <span asp-validation-for="Peso" class="text-danger"></span>
             </div>
-            <input type="hidden" asp-for="UsuarioCreacionId" class="form-control" ></input>
-            <input type="hidden" asp-for="UsuarioModificacionId" class="form-control" ></input>
+
             <div class="form-group">
-                <label asp-for="ImagenMascota" class="control-label"></label>
-                <img src="@Url.Action("GetImagenMascota", "Mascotas", new { id = Model.MascotaID })" alt="Imagen Mascota" style="width: 100px; height: auto;" />
+                <label asp-for="ImagenMascota" class="control-label">Imagen Actual</label>
+                <div>
+                    <img src="@Url.Action("GetImagenMascota", "Mascotas", new { id = Model.MascotaID })" alt="Imagen Mascota" style="width: 150px; height: auto;" />
+                </div>
                 <span asp-validation-for="ImagenMascota" class="text-danger"></span>
             </div>
-                    <input type="hidden" asp-for="FechaCreacion" class="form-control" />
-                    <input type="hidden" asp-for="FechaModificacion" class="form-control" />
+
             <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Estado" /> @Html.DisplayNameFor(model => model.Estado)
-                </label>
+                <input class="form-check-input" asp-for="Estado" type="checkbox" />
+                <label class="form-check-label" asp-for="Estado">Estado Activo</label>
             </div>
+
             <div class="form-group">
-                <input type="submit" value="Edit" class="btn btn-primary" />
+                <input type="submit" value="Guardar" class="btn btn-primary" />
             </div>
         </form>
+        <div class="back-link">
+            <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0 auto;
+    }
+
+    .edit-mascota-box {
+        width: 100%;
+        max-width: 700px;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        text-align: left;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 10px 20px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        padding: 10px 20px;
+        color: white;
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+</style>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

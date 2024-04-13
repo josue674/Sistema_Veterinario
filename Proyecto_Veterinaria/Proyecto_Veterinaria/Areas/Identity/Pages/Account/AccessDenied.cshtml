@@ -1,10 +1,57 @@
 ﻿@page
 @model AccessDeniedModel
+
 @{
-    ViewData["Title"] = "Access denied";
+    ViewData["Title"] = "Acceso Denegado";
 }
 
-<header>
-    <h1 class="text-danger">@ViewData["Title"]</h1>
-    <p class="text-danger">You do not have access to this resource.</p>
-</header>
+<div class="container">
+    <div class="access-denied-box">
+        <h1 class="text-danger">@ViewData["Title"]</h1>
+        <p>No tienes acceso a este recurso.</p>
+        <a href="/" class="btn btn-primary">Volver al Inicio</a>
+    </div>
+</div>
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0 auto;
+    }
+
+    .access-denied-box {
+        text-align: center;
+        color: #721c24;
+        background-color: #f8d7da;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        width: 80%;
+        max-width: 500px;
+    }
+
+    .text-danger {
+        color: #721c24; /* un tono de rojo más oscuro para una mejor visibilidad */
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        margin-top: 20px; /* Espacio sobre el botón para separarlo del texto */
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+</style>

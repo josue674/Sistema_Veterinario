@@ -1,21 +1,72 @@
 ﻿@page
 @model LogoutModel
+
 @{
-    ViewData["Title"] = "Log out";
+    ViewData["Title"] = "Cerrar Sesión";
 }
 
-<header>
-    <h1>@ViewData["Title"]</h1>
-    @{
-        if (User.Identity?.IsAuthenticated ?? false)
+<div class="container">
+    <div class="logout-box">
+        <h1>@ViewData["Title"]</h1>
+        @if (User.Identity?.IsAuthenticated ?? false)
         {
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                <button type="submit" class="nav-link btn btn-link text-dark">Click here to Logout</button>
+            <p>¿Estás seguro que deseas cerrar sesión?</p>
+            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                <button type="submit" class="btn btn-primary">Haz clic aquí para cerrar sesión</button>
             </form>
         }
         else
         {
-            <p>You have successfully logged out of the application.</p>
+            <p>Has cerrado sesión correctamente en la aplicación.</p>
+            <a href="/" class="btn btn-secondary">Volver al Inicio</a>
         }
+    </div>
+</div>
+
+<style>
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0 auto;
     }
-</header>
+
+    .logout-box {
+        text-align: center;
+        color: #333;
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        width: 80%;
+        max-width: 400px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        margin-top: 20px; /* Espacio sobre el botón para separarlo del texto */
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        margin-top: 20px; /* Espacio sobre el botón para separarlo del texto */
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+</style>

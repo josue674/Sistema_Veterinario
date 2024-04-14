@@ -1,140 +1,76 @@
 ﻿@model Veterinaria.DAL.Mascota
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles de Mascota";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Mascota</h4>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Detalles de Mascota</h1>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NombreMascota)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NombreMascota)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Edad)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Edad)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Peso)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Peso)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImagenMascota)
-        </dt>
-        <dd class = "col-sm-10">
-            <img src="@Url.Action("GetImagenMascota", "Mascotas", new { id = Model.MascotaID })" alt="Imagen Mascota" style="width: 100px; height: auto;" />
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FechaCreacion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FechaCreacion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FechaModificacion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FechaModificacion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Estado)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UsuarioCreacion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UsuarioCreacion.Nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UsuarioModificacion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UsuarioModificacion.Nombre)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.UsuarioDueno)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.UsuarioDueno.Nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TipoMascota)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TipoMascota.DescripcionTipo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Raza)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Raza.DescripcionRaza)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Genr)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Genr.TipoGenero)
-        </dd>
-    </dl>
-</div>
-<div class="card">
-    <div class="card-header">
-        <h5 class="card-title">Citas Históricas</h5>
-    </div>
-    <div class="card-body">
-        @foreach (Cita cita in ViewData["CitasHistoricas"] as List<Cita>)
-        {
-            <div class="row mb-2">
-                <div class="col-sm-4">
-                    <strong>Fecha de la cita:</strong> @Html.DisplayFor(_ => cita.FechaHora)
-                </div>
-                <div class="col-sm-4">
-                    <strong>Descripción:</strong> @Html.DisplayFor(_ => cita.Descripcion)
-                </div>
-                <div class="col-sm-4">
-                    <strong>Diagnostico:</strong> @Html.DisplayFor(_ => cita.Diagnostico)
-                </div>
-                <div class="col-sm-4">
-                    <a asp-controller="Citas" asp-action="DetailsMascota" asp-route-id="@cita.CitaID" asp-route-ownerId="@ViewData["MascotaId"]">Ver informacion de cita</a>
-                </div>
-            </div>
-        }
-    </div>
-</div>
 
-<div class="card">
-    <div class="card-header">
-        <h5 class="card-title">Próximas Citas</h5>
+    <div class="card mb-4 shadow">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">Nombre:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.NombreMascota)</dd>
+                <dt class="col-sm-3">Edad:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Edad)</dd>
+                <dt class="col-sm-3">Peso:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Peso)</dd>
+                <dt class="col-sm-3">Imagen:</dt>
+                <dd class="col-sm-9">
+                    <img src="@Url.Action("GetImagenMascota", "Mascotas", new { id = Model.MascotaID })" alt="Imagen de Mascota" class="img-fluid" />
+                </dd>
+                <dt class="col-sm-3">Fecha Creación:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.FechaCreacion)</dd>
+                <dt class="col-sm-3">Fecha Modificación:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.FechaModificacion)</dd>
+                <dt class="col-sm-3">Estado:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Estado)</dd>
+                <dt class="col-sm-3">Dueño:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.UsuarioDueno.Nombre)</dd>
+                <dt class="col-sm-3">Tipo de Mascota:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.TipoMascota.DescripcionTipo)</dd>
+                <dt class="col-sm-3">Raza:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Raza.DescripcionRaza)</dd>
+                <dt class="col-sm-3">Género:</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.Genr.TipoGenero)</dd>
+            </dl>
+        </div>
     </div>
-    <div class="card-body">
-        @foreach (Cita cita in ViewData["CitasProximas"] as List<Cita>)
-        {
-            <div class="row mb-2">
-                <div class="col-sm-4">
-                    <strong>Fecha de la cita:</strong> @Html.DisplayFor(_ => cita.FechaHora)
-                </div>
-                <div class="col-sm-4">
-                    <strong>Descripción:</strong> @Html.DisplayFor(_ => cita.Descripcion)
-                </div>
-            </div>
-        }
-    </div>
-</div>
 
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.MascotaID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div class="card mb-4 shadow">
+        <div class="card-header bg-primary text-white">Citas Históricas</div>
+        <div class="card-body">
+            @foreach (var cita in ViewData["CitasHistoricas"] as List<Cita>)
+            {
+                <div class="row mb-2">
+                    <div class="col-md-3">Fecha de la cita: @Html.DisplayFor(_ => cita.FechaHora)</div>
+                    <div class="col-md-3">Descripción: @Html.DisplayFor(_ => cita.Descripcion)</div>
+                    <div class="col-md-3">Diagnóstico: @Html.DisplayFor(_ => cita.Diagnostico)</div>
+                    <div class="col-md-3 text-center">
+                        <a asp-controller="Citas" asp-action="DetailsMascota" asp-route-id="@cita.CitaID" asp-route-ownerId="@ViewData["MascotaId"]" class="btn btn-info">Ver más detalles</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="card mb-4 shadow">
+        <div class="card-header bg-secondary text-white">Próximas Citas</div>
+        <div class="card-body">
+            @foreach (var cita in ViewData["CitasProximas"] as List<Cita>)
+            {
+                <div class="row mb-2">
+                    <div class="col-md-4">Fecha de la cita: @Html.DisplayFor(_ => cita.FechaHora)</div>
+                    <div class="col-md-4">Descripción: @Html.DisplayFor(_ => cita.Descripcion)</div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-action="Edit" asp-route-id="@Model.MascotaID" class="btn btn-primary btn-lg">Editar</a>
+        <a asp-action="Index" class="btn btn-secondary btn-lg">Volver a la lista</a>
+    </div>
 </div>

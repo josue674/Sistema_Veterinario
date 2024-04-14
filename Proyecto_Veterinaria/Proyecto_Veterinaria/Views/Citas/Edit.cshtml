@@ -1,75 +1,84 @@
 ﻿@model Veterinaria.DAL.Cita
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Cita";
     var item = Model;
 }
 
-<h1>Edit</h1>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Editar Cita</h1>
 
-<h4>Cita</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="CitaID" />
-            <div class="form-group">
-                <label asp-for="MascotaID" class="control-label"></label>
-                <select asp-for="MascotaID" class="form-control" asp-items="ViewBag.MascotaID"></select>
-                <span asp-validation-for="MascotaID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaHora" class="control-label"></label>
-                <input asp-for="FechaHora" class="form-control" />
-                <span asp-validation-for="FechaHora" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VeterinarioPrincipalID" class="control-label"></label>
-                <select asp-for="VeterinarioPrincipalID" class="form-control" asp-items="ViewBag.VeterinarioPrincipalID"></select>
-                <span asp-validation-for="VeterinarioPrincipalID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VeterinarioSecundarioID" class="control-label"></label>
-                <select asp-for="VeterinarioSecundarioID" class="form-control" asp-items="ViewBag.VeterinarioSecundarioID"></select>
-                <span asp-validation-for="VeterinarioSecundarioID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Descripcion" class="control-label"></label>
-                <input asp-for="Descripcion" class="form-control" />
-                <span asp-validation-for="Descripcion" class="text-danger"></span>
-            </div>
-            @{
-                if (@ViewData["EstadoActualDescripcion"].ToString() == "En Curso")
-                {
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form asp-action="Edit" class="card shadow">
+                <div class="card-body">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                    <input type="hidden" asp-for="CitaID" />
+
                     <div class="form-group">
-                        <label asp-for="Diagnostico" class="control-label"></label>
-                        <input asp-for="Diagnostico" class="form-control" />
-                        <span asp-validation-for="Diagnostico" class="text-danger"></span>
+                        <label asp-for="MascotaID" class="control-label">Mascota</label>
+                        <select asp-for="MascotaID" class="form-control" asp-items="ViewBag.MascotaID"></select>
+                        <span asp-validation-for="MascotaID" class="text-danger"></span>
                     </div>
-                }
-            }
 
-            <div class="form-group">
-                <label asp-for="EstadoCitaID" class="control-label"></label>
-                <select asp-for="EstadoCitaID" class="form-control" asp-items="ViewBag.EstadoCitaID"></select>
-                <span asp-validation-for="EstadoCitaID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+                    <div class="form-group">
+                        <label asp-for="FechaHora" class="control-label">Fecha y Hora</label>
+                        <input asp-for="FechaHora" type="datetime-local" class="form-control" />
+                        <span asp-validation-for="FechaHora" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="VeterinarioPrincipalID" class="control-label">Veterinario Principal</label>
+                        <select asp-for="VeterinarioPrincipalID" class="form-control" asp-items="ViewBag.VeterinarioPrincipalID"></select>
+                        <span asp-validation-for="VeterinarioPrincipalID" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="VeterinarioSecundarioID" class="control-label">Veterinario Secundario</label>
+                        <select asp-for="VeterinarioSecundarioID" class="form-control" asp-items="ViewBag.VeterinarioSecundarioID"></select>
+                        <span asp-validation-for="VeterinarioSecundarioID" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Descripcion" class="control-label">Descripción</label>
+                        <input asp-for="Descripcion" class="form-control" />
+                        <span asp-validation-for="Descripcion" class="text-danger"></span>
+                    </div>
+
+                    @if (ViewData["EstadoActualDescripcion"].ToString() == "En Curso")
+                    {
+                        <div class="form-group">
+                            <label asp-for="Diagnostico" class="control-label">Diagnóstico</label>
+                            <input asp-for="Diagnostico" class="form-control" />
+                            <span asp-validation-for="Diagnostico" class="text-danger"></span>
+                        </div>
+                    }
+
+                    <div class="form-group">
+                        <label asp-for="EstadoCitaID" class="control-label">Estado de la Cita</label>
+                        <select asp-for="EstadoCitaID" class="form-control" asp-items="ViewBag.EstadoCitaID"></select>
+                        <span asp-validation-for="EstadoCitaID" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+                        <a asp-action="Index" class="btn btn-secondary btn-lg">Volver a la lista</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        @if (ViewData["EstadoActualDescripcion"].ToString() == "En Curso" && item.Diagnostico != null)
+        {
+            <a asp-controller="MedicamentoCitas" asp-action="Create" asp-route-id="@item.CitaID" class="btn btn-info">Agregar Medicamentos</a>
+        }
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-    @{if (@ViewData["EstadoActualDescripcion"].ToString() == "En Curso" && @item.Diagnostico != null )
-    {
-    <a asp-controller="MedicamentoCitas" asp-action="Create" asp-route-id="@item.CitaID">Agregar Medicamentos</a>
-    }}
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

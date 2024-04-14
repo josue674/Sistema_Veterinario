@@ -3,74 +3,67 @@
 @{
     ViewData["Title"] = "Index";
     var identidad = User.Identity as ClaimsIdentity;
-    string tipoUsuario = identidad.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value;
+    string tipoUsuario = identidad.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
 }
 
-<h1>Index</h1>
+<div class="container mt-5">
+    <h1 class="mb-4 text-center text-primary">Panel de Citas</h1>
 
-<p>
-    @{
-        if (tipoUsuario == "Veterinario")
-        {
-            <a asp-action="Create">Create New</a>
-        }
+    @if (tipoUsuario == "Veterinario")
+    {
+        <div class="text-right mb-3">
+            <a asp-action="Create" class="btn btn-success btn-lg">Crear Nueva Cita</a>
+        </div>
     }
-</p>
-<h2>Historial de Citas</h2>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Fecha</th>
-            <th>Descripción</th>
-            <th>Veterinario Principal</th>
-            <th>Veterinario Secundario</th>
-            <th>Detalles</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (Cita cita in ViewData["Historial"] as List<Cita> )
-        {
-            <tr>
-                <td>@cita.FechaHora.ToString("g")</td>
-                <td>@cita.Descripcion</td>
-                <td>@cita.VeterinarioPrincipal.Nombre</td>
-                <td>@cita.VeterinarioSecundario.Nombre</td>
-                <td><a asp-action="Details" asp-route-id="@cita.CitaID">Ver Detalle</a></td>
-                <td>
-                    <!-- Enlaces o botones para editar, según corresponda -->
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
 
-<h2>Próximas Citas</h2>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Fecha</th>
-            <th>Descripción</th>
-            <th>Veterinario Principal</th>
-            <th>Veterinario Secundario</th>
-            <th>Detalles</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (Cita cita in ViewData["Proximas"] as List<Cita>)
-        {
-            <tr>
-                <td>@cita.FechaHora.ToString("g")</td>
-                <td>@cita.Descripcion</td>
-                <td>@cita.VeterinarioPrincipal.Nombre</td>
-                <td>@cita.VeterinarioSecundario.Nombre</td>
-                <td><a asp-action="Details" asp-route-id="@cita.CitaID">Ver Detalle</a></td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@cita.CitaID">Editar</a> |
-                    <a asp-action="Delete" asp-route-id="@cita.CitaID">Eliminar</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <h2 class="text-secondary text-center mb-3">Historial de Citas</h2>
+            @foreach (Cita cita in ViewData["Historial"] as List<Cita>)
+            {
+                <div class="card shadow mb-4 rounded">
+                    <div class="card-header bg-dark text-white">
+                        Fecha de la Cita: @cita.FechaHora.ToString("g")
+                    </div>
+                    <div class="card-body bg-light">
+                        <p class="font-weight-bold text-muted">Estado:</p>
+                        <p class="text-success">@cita.EstadoCita.EstadoCitaNombre</p>
+                        <p class="font-weight-bold text-muted">Veterinarios:</p>
+                        <p>@cita.VeterinarioPrincipal.Nombre & @cita.VeterinarioSecundario.Nombre</p>
+                        <p class="font-weight-bold text-muted">Descripción:</p>
+                        <p>@cita.Descripcion</p>
+                        <div class="text-center">
+                            <a asp-action="Details" asp-route-id="@cita.CitaID" class="btn btn-info">Ver Detalles</a>
+                            <a asp-action="Edit" asp-route-id="@cita.CitaID" class="btn btn-primary">Editar</a>
+                            <a asp-action="Delete" asp-route-id="@cita.CitaID" class="btn btn-danger">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <h2 class="text-secondary text-center mb-3">Próximas Citas</h2>
+            @foreach (Cita cita in ViewData["Proximas"] as List<Cita>)
+            {
+                <div class="card shadow mb-4 rounded">
+                    <div class="card-header bg-light text-dark">
+                        Fecha de la Cita: @cita.FechaHora.ToString("g")
+                    </div>
+                    <div class="card-body bg-white">
+                        <p class="font-weight-bold text-muted">Estado:</p>
+                        <p class="text-success">@cita.EstadoCita.EstadoCitaNombre</p>
+                        <p class="font-weight-bold text-muted">Veterinarios:</p>
+                        <p>@cita.VeterinarioPrincipal.Nombre & @cita.VeterinarioSecundario.Nombre</p>
+                        <p class="font-weight-bold text-muted">Descripción:</p>
+                        <p>@cita.Descripcion</p>
+                        <div class="text-center">
+                            <a asp-action="Edit" asp-route-id="@cita.CitaID" class="btn btn-primary">Editar</a>
+                            <a asp-action="Delete" asp-route-id="@cita.CitaID" class="btn btn-danger">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

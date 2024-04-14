@@ -1,54 +1,65 @@
 ﻿@model Veterinaria.DAL.Cita
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Cita";
 }
 
-<h1>Create</h1>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Crear Nueva Cita</h1>
 
-<h4>Cita</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="MascotaID" class="control-label"></label>
-                <select asp-for="MascotaID" class ="form-control" asp-items="ViewBag.MascotaID"></select>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="form-group">
+                            <label asp-for="MascotaID" class="control-label">Mascota</label>
+                            <select asp-for="MascotaID" class="form-control" asp-items="ViewBag.MascotaID"></select>
+                            <span asp-validation-for="MascotaID" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="FechaHora" class="control-label">Fecha y Hora</label>
+                            <input asp-for="FechaHora" class="form-control" type="datetime-local" />
+                            <span asp-validation-for="FechaHora" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="VeterinarioPrincipalID" class="control-label">Veterinario Principal</label>
+                            <select asp-for="VeterinarioPrincipalID" class="form-control" asp-items="ViewBag.VeterinarioPrincipalID"></select>
+                            <span asp-validation-for="VeterinarioPrincipalID" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="VeterinarioSecundarioID" class="control-label">Veterinario Secundario</label>
+                            <select asp-for="VeterinarioSecundarioID" class="form-control" asp-items="ViewBag.VeterinarioSecundarioID"></select>
+                            <span asp-validation-for="VeterinarioSecundarioID" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Descripcion" class="control-label">Descripción</label>
+                            <textarea asp-for="Descripcion" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="Descripcion" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Crear</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="FechaHora" class="control-label"></label>
-                <input asp-for="FechaHora" class="form-control" />
-                <span asp-validation-for="FechaHora" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VeterinarioPrincipalID" class="control-label"></label>
-                <select asp-for="VeterinarioPrincipalID" class ="form-control" asp-items="ViewBag.VeterinarioPrincipalID"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="VeterinarioSecundarioID" class="control-label"></label>
-                <select asp-for="VeterinarioSecundarioID" class ="form-control" asp-items="ViewBag.VeterinarioSecundarioID"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Descripcion" class="control-label"></label>
-                <input asp-for="Descripcion" class="form-control" />
-                <span asp-validation-for="Descripcion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EstadoCitaID" class="control-label"></label>
-                <select asp-for="EstadoCitaID" class ="form-control" asp-items="ViewBag.EstadoCitaID"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <a asp-action="Index" class="btn btn-link">Volver a la lista</a>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

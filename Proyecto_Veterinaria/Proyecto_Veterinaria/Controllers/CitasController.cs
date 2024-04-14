@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,13 +15,14 @@ namespace Proyecto_Veterinaria.Controllers
     public class CitasController : Controller
     {
         private readonly VeterinariaDbContext _context;
-        
+        private readonly UserManager<Usuario> _userManager;
         private ClaimsIdentity identidad;
         private string idUsuarioLogeado;
         private string tipoUsuario;
-        public CitasController(VeterinariaDbContext context)
+        public CitasController(VeterinariaDbContext context, UserManager<Usuario> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public override void OnActionExecuting(ActionExecutingContext context)
@@ -58,13 +60,7 @@ namespace Proyecto_Veterinaria.Controllers
                 .Include(c => c.VeterinarioPrincipal)
                 .Include(c => c.VeterinarioSecundario)
                 .ToListAsync();
-            // Prepara el modelo de vista, podría ser un objeto anónimo si no tienes una clase específica
-            //var model = new
-            //{
-            //    Historial = citasHistorial,
-            //    Proximas = citasProximas
-            //};
-            //return View(model);
+
             ViewData["Historial"] = citasHistorial;
             ViewData["Proximas"] = citasProximas;
 
@@ -120,12 +116,13 @@ namespace Proyecto_Veterinaria.Controllers
         }
 
         // GET: Citas/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             ViewData["EstadoCitaID"] = new SelectList(_context.EstadoCitas, "EstadoCitaID", "EstadoCitaNombre");
             ViewData["MascotaID"] = new SelectList(_context.Mascotas, "MascotaID", "NombreMascota");
-            ViewData["VeterinarioPrincipalID"] = new SelectList(_context.Set<Usuario>(), "Id", "Nombre");
-            ViewData["VeterinarioSecundarioID"] = new SelectList(_context.Set<Usuario>(), "Id", "Nombre");
+            var usersInRole = await _userManager.GetUsersInRoleAsync("Veterinario");
+            ViewData["VeterinarioPrincipalID"] = new SelectList(usersInRole, "Id", "Nombre");
+            ViewData["VeterinarioSecundarioID"] = new SelectList(usersInRole, "Id", "Nombre");
             return View();
         }
 
@@ -186,7 +183,7 @@ namespace Proyecto_Veterinaria.Controllers
             {
                 ModelState.AddModelError(string.Empty, "Uno o ambos veterinarios están inactivos o no existen.");
             }
-
+            cita.EstadoCitaID = 1;
             if (ModelState.IsValid)
             {
                 _context.Add(cita);

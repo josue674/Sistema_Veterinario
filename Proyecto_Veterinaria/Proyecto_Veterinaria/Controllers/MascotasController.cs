@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,15 +15,17 @@ namespace Proyecto_Veterinaria.Controllers
     public class MascotasController : Controller
     {
         private readonly VeterinariaDbContext _context;
+        private readonly UserManager<Usuario> _userManager;
         //Obtener el usuario loggeado
         private ClaimsIdentity identidad;
         private string idUsuarioLogeado;
         private string tipoUsuario;
 
 
-        public MascotasController(VeterinariaDbContext context)
+        public MascotasController(VeterinariaDbContext context, UserManager<Usuario> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         public override void OnActionExecuting(ActionExecutingContext context)
@@ -56,6 +59,18 @@ namespace Proyecto_Veterinaria.Controllers
             return View(await query.ToListAsync());
         }
 
+        public async Task<JsonResult> GetRazasPorTipo(int tipoMascotaId)
+        {
+            // Suponiendo que tienes una relación definida para obtener las razas basadas en el tipo de mascota
+            var razas = await _context.Razas
+                                      .Where(r => r.TipoMascotaID == tipoMascotaId)
+                                      .Select(r => new { value = r.RazaID, text = r.DescripcionRaza })
+                                      .ToListAsync();
+
+            return Json(new SelectList(razas, "value", "text"));
+        }
+
+
         // GET: Mascotas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -87,14 +102,15 @@ namespace Proyecto_Veterinaria.Controllers
         }
 
         // GET: Mascotas/Create
-        public IActionResult Create()
+        public async Task<IActionResult> CreateAsync()
         {
             ViewData["GeneroId"] = new SelectList(_context.Set<Genero>(), "GenroId", "TipoGenero");
             ViewData["RazaId"] = new SelectList(_context.Razas, "RazaID", "DescripcionRaza");
             ViewData["TipoMascotaId"] = new SelectList(_context.TiposMascota, "TipoMascotaID", "DescripcionTipo");
             ViewData["UsuarioCreacionId"] = new SelectList(_context.Set<Usuario>(), "Id", "Nombre");
             ViewData["UsuarioModificacionId"] = new SelectList(_context.Set<Usuario>(), "Id", "Nombre");
-            ViewData["UsuarioDuenoId"] = new SelectList(_context.Set<Usuario>(), "Id", "Nombre");
+            var usersInRole = await _userManager.GetUsersInRoleAsync("Cliente");
+            ViewData["UsuarioDuenoId"] = new SelectList(usersInRole, "Id", "Nombre");
             return View();
         }
 

@@ -4,29 +4,31 @@
     ViewData["Title"] = "Índice de Mascotas";
 }
 
-<div class="container">
-    <h1>Lista de Mascotas</h1>
-    <p>
-        <a asp-action="Create" class="btn btn-primary">Crear Nueva Mascota</a>
-    </p>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Lista de Mascotas</h1>
+    <div class="text-center mb-3">
+        <a asp-action="Create" class="btn btn-primary btn-lg">Crear Nueva Mascota</a>
+    </div>
 
-    <div class="card-container">
+    <div class="row">
         @foreach (var item in Model)
         {
-            <div class="card">
-                <img src="@Url.Action("GetImagenMascota", "Mascotas", new { id = item.MascotaID })" alt="Imagen Mascota" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.NombreMascota)</h5>
-                    <div class="card-text">
-                        <strong>Edad:</strong> @Html.DisplayFor(modelItem => item.Edad) años<br>
-                        <strong>Peso:</strong> @Html.DisplayFor(modelItem => item.Peso) kg<br>
-                        <strong>Estado :</strong> @Html.DisplayFor(modelItem => item.Estado)<br>
-                        <strong>Creado:</strong> @item.FechaCreacion.ToString("dd/MM/yyyy")<br>
-                        <strong>Modificado:</strong> @item.FechaModificacion.ToString("dd/MM/yyyy")<br>
-                        <strong>Dueño:</strong> @Html.DisplayFor(modelItem => item.UsuarioDueno.Nombre)<br>
-                        <strong>Tipo:</strong> @Html.DisplayFor(modelItem => item.TipoMascota.DescripcionTipo)<br>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow">
+                    <img src="@Url.Action("GetImagenMascota", "Mascotas", new { id = item.MascotaID })" alt="Imagen Mascota" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.NombreMascota)</h5>
+                        <p class="card-text">
+                            <strong>Edad:</strong> @Html.DisplayFor(modelItem => item.Edad) años<br>
+                            <strong>Peso:</strong> @Html.DisplayFor(modelItem => item.Peso) kg<br>
+                            <strong>Estado:</strong> @Html.DisplayFor(modelItem => item.Estado)<br>
+                            <strong>Creado:</strong> @item.FechaCreacion.ToString("dd/MM/yyyy")<br>
+                            <strong>Modificado:</strong> @item.FechaModificacion.ToString("dd/MM/yyyy")<br>
+                            <strong>Dueño:</strong> @Html.DisplayFor(modelItem => item.UsuarioDueno.Nombre)<br>
+                            <strong>Tipo:</strong> @Html.DisplayFor(modelItem => item.TipoMascota.DescripcionTipo)<br>
+                        </p>
                     </div>
-                    <div class="card-actions">
+                    <div class="card-footer text-center">
                         <a asp-action="Edit" asp-route-id="@item.MascotaID" class="btn btn-secondary">Editar</a>
                         <a asp-action="Details" asp-route-id="@item.MascotaID" class="btn btn-info">Detalles</a>
                         <a asp-action="Delete" asp-route-id="@item.MascotaID" class="btn btn-danger">Eliminar</a>
@@ -36,79 +38,3 @@
         }
     </div>
 </div>
-
-<style>
-    .container {
-        margin: 20px;
-    }
-
-    .card-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .card {
-        flex: 1 1 300px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        margin-bottom: 20px;
-        background-color: #f8f9fa;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card-img-top {
-        width: 100%; /* or 180px to set a fixed size */
-        height: auto;
-        object-fit: cover;
-    }
-
-    .card-body {
-        width: 100%;
-        padding: 15px;
-        text-align: center;
-    }
-
-    .card-title {
-        font-size: 1.25rem;
-        color: #333;
-    }
-
-    .card-text {
-        color: #666;
-        margin-bottom: 10px;
-        text-align: left; /* Align text to the left within card body */
-    }
-
-    .card-actions > a {
-        margin-right: 10px;
-        color: white;
-        text-decoration: none;
-        padding: 5px 10px;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-    }
-
-    .btn-secondary {
-        background-color: #6c757d;
-        border-color: #6c757d;
-    }
-
-    .btn-info {
-        background-color: #17a2b8;
-        border-color: #17a2b8;
-    }
-
-    .btn-danger {
-        background-color: #dc3545;
-        border-color: #dc3545;
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
-</style>

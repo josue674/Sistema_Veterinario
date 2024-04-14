@@ -4,111 +4,56 @@
     ViewData["Title"] = "Editar Mascota";
 }
 
-<div class="container">
-    <div class="edit-mascota-box">
-        <h1>Editar Mascota</h1>
-        <h4>Detalles de la Mascota</h4>
-        <hr />
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="MascotaID" />
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h1 class="text-center">Editar Mascota</h1>
+        </div>
+        <div class="card-body">
+            <h4 class="text-secondary">Detalles de la Mascota</h4>
+            <hr />
+            <form asp-action="Edit" class="needs-validation" novalidate>
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                <input type="hidden" asp-for="MascotaID" />
 
-            <div class="form-group">
-                <label asp-for="NombreMascota" class="control-label">Nombre de la Mascota</label>
-                <input asp-for="NombreMascota" class="form-control" placeholder="Ingrese el nombre de la mascota" />
-                <span asp-validation-for="NombreMascota" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Edad" class="control-label">Edad</label>
-                <input asp-for="Edad" class="form-control" placeholder="Ingrese la edad de la mascota" />
-                <span asp-validation-for="Edad" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Peso" class="control-label">Peso (kg)</label>
-                <input asp-for="Peso" class="form-control" placeholder="Ingrese el peso de la mascota" />
-                <span asp-validation-for="Peso" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="ImagenMascota" class="control-label">Imagen Actual</label>
-                <div>
-                    <img src="@Url.Action("GetImagenMascota", "Mascotas", new { id = Model.MascotaID })" alt="Imagen Mascota" style="width: 150px; height: auto;" />
+                <div class="form-group">
+                    <label asp-for="NombreMascota" class="control-label">Nombre de la Mascota</label>
+                    <input asp-for="NombreMascota" class="form-control" placeholder="Ingrese el nombre de la mascota" />
+                    <span asp-validation-for="NombreMascota" class="text-danger"></span>
                 </div>
-                <span asp-validation-for="ImagenMascota" class="text-danger"></span>
-            </div>
 
-            <div class="form-group form-check">
-                <input class="form-check-input" asp-for="Estado" type="checkbox" />
-                <label class="form-check-label" asp-for="Estado">Estado Activo</label>
-            </div>
+                <div class="form-group">
+                    <label asp-for="Edad" class="control-label">Edad</label>
+                    <input asp-for="Edad" class="form-control" placeholder="Ingrese la edad de la mascota" />
+                    <span asp-validation-for="Edad" class="text-danger"></span>
+                </div>
 
-            <div class="form-group">
-                <input type="submit" value="Guardar" class="btn btn-primary" />
-            </div>
-        </form>
-        <div class="back-link">
-            <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+                <div class="form-group">
+                    <label asp-for="Peso" class="control-label">Peso (kg)</label>
+                    <input asp-for="Peso" class="form-control" placeholder="Ingrese el peso de la mascota" />
+                    <span asp-validation-for="Peso" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ImagenMascota" class="control-label">Imagen Actual</label>
+                    <div class="mb-3">
+                        <img src="@Url.Action("GetImagenMascota", "Mascotas", new { id = Model.MascotaID })" alt="Imagen Mascota" class="img-thumbnail" />
+                    </div>
+                </div>
+
+                <div class="form-group form-check">
+                    <input class="form-check-input" asp-for="Estado" type="checkbox" />
+                    <label class="form-check-label" asp-for="Estado">Estado Activo</label>
+                </div>
+
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+                    <a asp-action="Index" class="btn btn-secondary btn-lg">Volver a la lista</a>
+                </div>
+            </form>
         </div>
     </div>
 </div>
-
-<style>
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0 auto;
-    }
-
-    .edit-mascota-box {
-        width: 100%;
-        max-width: 700px;
-        padding: 20px;
-        background-color: #f8f9fa;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        text-align: left;
-    }
-
-    .form-group {
-        margin-bottom: 20px;
-    }
-
-    .form-control {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-        padding: 10px 20px;
-        color: white;
-        cursor: pointer;
-    }
-
-    .btn-secondary {
-        background-color: #6c757d;
-        border-color: #6c757d;
-        padding: 10px 20px;
-        color: white;
-        cursor: pointer;
-    }
-
-    a {
-        text-decoration: none;
-        color: white;
-    }
-
-        a:hover {
-            text-decoration: underline;
-        }
-</style>
 
 @section Scripts {
     @{

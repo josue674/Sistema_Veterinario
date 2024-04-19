@@ -108,8 +108,6 @@ namespace Proyecto_Veterinaria.Controllers
             var model = new EditUserViewModel
             {
                 Id = user.Id,
-                Email = user.Email,
-                Nombre = user.Nombre,
                 // ... (otros campos)
                 SelectedRoleId = roles.FirstOrDefault(r => userRoles.Contains(r.Name))?.Id,
                 Roles = new SelectList(roles, "Id", "Name")
@@ -124,39 +122,43 @@ namespace Proyecto_Veterinaria.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(EditUserViewModel model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                var user = await _userManager.FindByIdAsync(model.Id);
-                if (user == null)
-                {
-                    return NotFound();
-                }
-                var userRoles = await _userManager.GetRolesAsync(user);
-                if (userRoles.FirstOrDefault() != model.SelectedRoleId)
-                {
-                    await _userManager.RemoveFromRolesAsync(user, userRoles);
-                    var newRole = await _roleManager.FindByIdAsync(model.SelectedRoleId);
-                    if (newRole != null)
-                    {
-                        await _userManager.AddToRoleAsync(user, newRole.Name);
-                    }
-                }
-                var result = await _userManager.UpdateAsync(user);
-                if (result.Succeeded)
-                {
-                    return RedirectToAction(nameof(Index));
-                }
-                else
-                {
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error.Description);
-                    }
-                }
+                // Repopulate the roles list if validation fails
+                model.Roles = new SelectList(await _roleManager.Roles.ToListAsync(), "Id", "Name", model.SelectedRoleId);
+                return View(model);
             }
 
-            return View(model);
+            var user = await _userManager.FindByIdAsync(model.Id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            // Fetch the current roles of the user
+            var currentRoles = await _userManager.GetRolesAsync(user);
+
+            // Find the new role by ID from the model
+            var newRole = await _roleManager.FindByIdAsync(model.SelectedRoleId);
+            if (newRole == null)
+            {
+                ModelState.AddModelError("", "The selected role is invalid.");
+                return View(model);
+            }
+
+            // Update the user role if it has changed
+            if (!currentRoles.Contains(newRole.Name))
+            {
+                // Remove all roles currently assigned to the user and add the new role
+                await _userManager.RemoveFromRolesAsync(user, currentRoles);
+                await _userManager.AddToRoleAsync(user, newRole.Name);
+            }
+
+            return RedirectToAction(nameof(Index));
         }
+
+
+
 
         // GET: Admin/Delete/5
         public async Task<IActionResult> Delete(string id)

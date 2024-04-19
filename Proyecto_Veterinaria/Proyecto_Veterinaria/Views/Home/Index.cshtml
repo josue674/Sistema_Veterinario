@@ -2,7 +2,7 @@
     ViewData["Title"] = "Página Principal";
     bool isLoggedIn = User.Identity.IsAuthenticated;
     string userRole = isLoggedIn ? (User.IsInRole("Admin") ? "Administrador" :
-                                    User.IsInRole("Veterinarian") ? "Veterinario" : "Cliente") : "Invitado";
+                                    User.IsInRole("Veterinario") ? "Veterinario" : "Cliente") : "Invitado";
 }
 
 <div class="container">

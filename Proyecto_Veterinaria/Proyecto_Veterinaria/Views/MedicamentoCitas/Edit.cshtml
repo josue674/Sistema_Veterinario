@@ -1,44 +1,54 @@
 ﻿@model Veterinaria.DAL.MedicamentoCita
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Medicamento en Cita";
 }
 
-<h1>Edit</h1>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Editar Medicamento en Cita</h1>
 
-<h4>MedicamentoCita</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="MedicamentoCitaID" />
-            <div class="form-group">
-                <label asp-for="CitaID" class="control-label"></label>
-                <select asp-for="CitaID" class="form-control" asp-items="ViewBag.CitaID"></select>
-                <span asp-validation-for="CitaID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MedicamentoID" class="control-label"></label>
-                <select asp-for="MedicamentoID" class="form-control" asp-items="ViewBag.MedicamentoID"></select>
-                <span asp-validation-for="MedicamentoID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Dosis" class="control-label"></label>
-                <input asp-for="Dosis" class="form-control" />
-                <span asp-validation-for="Dosis" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form asp-action="Edit" class="card shadow">
+                <div class="card-body">
+                    <h4 class="text-secondary">Detalles del Medicamento</h4>
+                    <hr />
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                    <input type="hidden" asp-for="MedicamentoCitaID" />
+
+                    <div class="form-group">
+                        <label asp-for="CitaID" class="control-label">Cita</label>
+                        <select asp-for="CitaID" class="form-control" asp-items="ViewBag.CitaID"></select>
+                        <span asp-validation-for="CitaID" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="MedicamentoID" class="control-label">Medicamento</label>
+                        <select asp-for="MedicamentoID" class="form-control" asp-items="ViewBag.MedicamentoID"></select>
+                        <span asp-validation-for="MedicamentoID" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Dosis" class="control-label">Dosis</label>
+                        <input asp-for="Dosis" class="form-control" placeholder="Ingrese la dosis administrada" />
+                        <span asp-validation-for="Dosis" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-action="Index" class="btn btn-link">Volver a la lista</a>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

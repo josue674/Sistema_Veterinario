@@ -1,42 +1,40 @@
 ﻿@model Veterinaria.DAL.DesparasitacionVacuna
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles de Desparasitación/Vacuna";
 }
 
-<h1>Details</h1>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Detalles de Desparasitación/Vacuna</h1>
 
-<div>
-    <h4>DesparasitacionVacuna</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tipo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tipo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Fecha)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Fecha)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Producto)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Producto)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Mascota)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Mascota.NombreMascota)
-        </dd>
-    </dl>
+    <div class="card shadow">
+        <div class="card-body">
+            <h4 class="text-secondary">Información General</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-md-3">Tipo:</dt>
+                <dd class="col-md-9">@Html.DisplayFor(model => model.Tipo)</dd>
+
+                <dt class="col-md-3">Fecha:</dt>
+                <dd class="col-md-9">@Html.DisplayFor(model => model.Fecha)</dd>
+
+                <dt class="col-md-3">Producto:</dt>
+                <dd class="col-md-9">@Html.DisplayFor(model => model.Producto)</dd>
+
+                <dt class="col-md-3">Mascota:</dt>
+                <dd class="col-md-9">@Html.DisplayFor(model => model.Mascota.NombreMascota)</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-action="Edit" asp-route-id="@Model.DesparasitacionVacunaID" class="btn btn-secondary">Editar</a>
+        <a asp-action="Index" class="btn btn-link">Volver a la lista</a>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.DesparasitacionVacunaID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

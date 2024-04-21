@@ -1,36 +1,37 @@
 ﻿@model Veterinaria.DAL.MedicamentoCita
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles de Medicamento en Cita";
 }
 
-<h1>Details</h1>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Detalles de Medicamento en Cita</h1>
 
-<div>
-    <h4>MedicamentoCita</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Dosis)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Dosis)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cita)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cita.Descripcion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Medicamento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Medicamento.NombreMedicamento)
-        </dd>
-    </dl>
+    <div class="card shadow">
+        <div class="card-body">
+            <h4 class="text-secondary">Información del Medicamento</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-md-3">Dosis:</dt>
+                <dd class="col-md-9">@Html.DisplayFor(model => model.Dosis)</dd>
+
+                <dt class="col-md-3">Descripción de la Cita:</dt>
+                <dd class="col-md-9">@Html.DisplayFor(model => model.Cita.Descripcion)</dd>
+
+                <dt class="col-md-3">Nombre del Medicamento:</dt>
+                <dd class="col-md-9">@Html.DisplayFor(model => model.Medicamento.NombreMedicamento)</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-action="Edit" asp-route-id="@Model.MedicamentoCitaID" class="btn btn-secondary">Editar</a>
+        <a asp-action="Index" class="btn btn-link">Volver a la lista</a>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.MedicamentoCitaID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

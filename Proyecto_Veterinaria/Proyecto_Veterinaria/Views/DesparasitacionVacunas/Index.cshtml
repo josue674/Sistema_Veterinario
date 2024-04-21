@@ -1,53 +1,59 @@
 ﻿@model IEnumerable<Veterinaria.DAL.DesparasitacionVacuna>
 
 @{
-    ViewData["Title"] = "Index";
+	ViewData["Title"] = "Índice de Desparasitación y Vacunas";
 }
 
-<h1>Index</h1>
+<div class="container mt-5">
+	<h1 class="text-center mb-4">Índice de Desparasitación y Vacunas</h1>
+	@{
+		ClaimsIdentity identidad = User.Identity as ClaimsIdentity;
+		string tipoUsuario = identidad?.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+		if (tipoUsuario != null && tipoUsuario.Equals("Veterinario"))
+		{
+			<div class="text-center mb-3">
+				<a asp-action="Create" class="btn btn-primary btn-lg">Crear Nuevo</a>
+			</div>
+		}
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Tipo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fecha)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Producto)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Mascota)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tipo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fecha)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Producto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Mascota.NombreMascota)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.DesparasitacionVacunaID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.DesparasitacionVacunaID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.DesparasitacionVacunaID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+		<div class="table-responsive">
+			<table class="table table-hover shadow">
+				<thead class="thead-dark">
+					<tr>
+						<th>@Html.DisplayNameFor(model => model.Tipo)</th>
+						<th>@Html.DisplayNameFor(model => model.Fecha)</th>
+						<th>@Html.DisplayNameFor(model => model.Producto)</th>
+						<th>@Html.DisplayNameFor(model => model.Mascota)</th>
+						@{
+							if (tipoUsuario != null && tipoUsuario.Equals("Veterinario"))
+							{
+								<th>Acciones</th>
+							}
+						}
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var item in Model)
+					{
+						<tr>
+							<td>@Html.DisplayFor(modelItem => item.Tipo)</td>
+							<td>@Html.DisplayFor(modelItem => item.Fecha)</td>
+							<td>@Html.DisplayFor(modelItem => item.Producto)</td>
+							<td>@Html.DisplayFor(modelItem => item.Mascota.NombreMascota)</td>
+							<td>
+								@{
+									if (tipoUsuario != null && tipoUsuario.Equals("Veterinario"))
+									{
+										<a asp-action="Delete" asp-route-id="@item.DesparasitacionVacunaID" class="btn btn-danger btn-sm">Eliminar</a>
+										<a asp-action="Edit" asp-route-id="@item.DesparasitacionVacunaID" class="btn btn-secondary btn-sm">Editar</a>
+										<a asp-action="Details" asp-route-id="@item.DesparasitacionVacunaID" class="btn btn-info btn-sm">Detalles</a>
+									}
+								}
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	}
+</div>

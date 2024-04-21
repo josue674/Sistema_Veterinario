@@ -28,10 +28,12 @@
                             <strong>Tipo:</strong> @Html.DisplayFor(modelItem => item.TipoMascota.DescripcionTipo)<br>
                         </p>
                     </div>
+
                     <div class="card-footer text-center">
                         <a asp-action="Edit" asp-route-id="@item.MascotaID" class="btn btn-secondary">Editar</a>
                         <a asp-action="Details" asp-route-id="@item.MascotaID" class="btn btn-info">Detalles</a>
                         <a asp-action="Delete" asp-route-id="@item.MascotaID" class="btn btn-danger">Eliminar</a>
+                        <a asp-controller="DesparasitacionVacunas" asp-action="Index" asp-route-IdMascota="@item.MascotaID" class="btn ">Informacion de vacunas</a>
                     </div>
                 </div>
             </div>

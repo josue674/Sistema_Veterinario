@@ -192,8 +192,9 @@ namespace Proyecto_Veterinaria.Controllers
             }
             ViewData["EstadoCitaID"] = new SelectList(_context.EstadoCitas, "EstadoCitaID", "EstadoCitaNombre");
             ViewData["MascotaID"] = new SelectList(_context.Mascotas, "MascotaID", "NombreMascota");
-            ViewData["VeterinarioPrincipalID"] = new SelectList(_context.Set<Usuario>(), "Id", "Nombre");
-            ViewData["VeterinarioSecundarioID"] = new SelectList(_context.Set<Usuario>(), "Id", "Nombre");
+            var usersInRole = await _userManager.GetUsersInRoleAsync("Veterinario");
+            ViewData["VeterinarioPrincipalID"] = new SelectList(usersInRole, "Id", "Nombre");
+            ViewData["VeterinarioSecundarioID"] = new SelectList(usersInRole, "Id", "Nombre");
             return View(cita);
         }
 
@@ -218,8 +219,9 @@ namespace Proyecto_Veterinaria.Controllers
 
             ViewData["EstadoActualDescripcion"] = estadoActualDescripcion ?? "Estado no definido";
             ViewData["MascotaID"] = new SelectList(_context.Mascotas, "MascotaID", "NombreMascota", cita.MascotaID);
-            ViewData["VeterinarioPrincipalID"] = new SelectList(_context.Set<Usuario>(), "Id", "Nombre", cita.VeterinarioPrincipalID);
-            ViewData["VeterinarioSecundarioID"] = new SelectList(_context.Set<Usuario>(), "Id", "Nombre", cita.VeterinarioSecundarioID);
+            var usersInRole = await _userManager.GetUsersInRoleAsync("Veterinario");
+            ViewData["VeterinarioPrincipalID"] = new SelectList(usersInRole, "Id", "Nombre", cita.VeterinarioPrincipalID);
+            ViewData["VeterinarioSecundarioID"] = new SelectList(usersInRole, "Id", "Nombre", cita.VeterinarioSecundarioID);
             return View(cita);
         }
 
@@ -257,8 +259,9 @@ namespace Proyecto_Veterinaria.Controllers
             }
             ViewData["EstadoCitaID"] = new SelectList(_context.EstadoCitas, "EstadoCitaID", "EstadoCitaID", cita.EstadoCitaID);
             ViewData["MascotaID"] = new SelectList(_context.Mascotas, "MascotaID", "NombreMascota", cita.MascotaID);
-            ViewData["VeterinarioPrincipalID"] = new SelectList(_context.Set<Usuario>(), "Id", "Nombre", cita.VeterinarioPrincipalID);
-            ViewData["VeterinarioSecundarioID"] = new SelectList(_context.Set<Usuario>(), "Id", "Nombre", cita.VeterinarioSecundarioID);
+            var usersInRole = await _userManager.GetUsersInRoleAsync("Veterinario");
+            ViewData["VeterinarioPrincipalID"] = new SelectList(usersInRole, "Id", "Nombre", cita.VeterinarioPrincipalID);
+            ViewData["VeterinarioSecundarioID"] = new SelectList(usersInRole, "Id", "Nombre", cita.VeterinarioSecundarioID);
             return View(cita);
         }
 
